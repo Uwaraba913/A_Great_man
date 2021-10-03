@@ -21,7 +21,8 @@
 息抜きや少しだけ人生を豊かにしたい方に
 
 ## 設計書
-<...>
+[ER図.pdf](https://github.com/Uwaraba913/A_Great_man/files/7273020/ER.pdf)
+テーブル定義書→https://docs.google.com/spreadsheets/d/1VcjuDISv39jKzsSC-gGnA2ZIZWFhHAqi4BJ_mLgVxZI/edit?usp=sharing
 
 ## チャレンジ要素一覧
 <https://docs.google.com/spreadsheets/d/1viFuKYDWAksEwzxrT5KoVAGU-bE_awI9qCcUPzImTlA/edit?usp=sharing>
