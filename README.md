@@ -23,7 +23,7 @@
 ## 設計書
 [ER図.pdf](https://github.com/Uwaraba913/A_Great_man/files/7273020/ER.pdf)
 テーブル定義書→https://docs.google.com/spreadsheets/d/1VcjuDISv39jKzsSC-gGnA2ZIZWFhHAqi4BJ_mLgVxZI/edit?usp=sharing
-
+詳細設計書→https://docs.google.com/spreadsheets/d/14hze2SukTNH3sE5VxvUdxgUr9VgADhMLndb8NLnAne4/edit#gid=2133469642
 ## チャレンジ要素一覧
 <https://docs.google.com/spreadsheets/d/1viFuKYDWAksEwzxrT5KoVAGU-bE_awI9qCcUPzImTlA/edit?usp=sharing>
 
