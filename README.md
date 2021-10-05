@@ -26,6 +26,7 @@
 詳細設計書→https://docs.google.com/spreadsheets/d/14hze2SukTNH3sE5VxvUdxgUr9VgADhMLndb8NLnAne4/edit#gid=2133469642
 ## チャレンジ要素一覧
 <https://docs.google.com/spreadsheets/d/1viFuKYDWAksEwzxrT5KoVAGU-bE_awI9qCcUPzImTlA/edit?usp=sharing>
+[ワイヤーフレーム.zip](https://github.com/Uwaraba913/A_Great_man/files/7284334/default.zip)
 
 ## 開発環境
 - OS：Linux(CentOS)
