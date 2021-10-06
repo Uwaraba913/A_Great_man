@@ -1,0 +1,15 @@
+<div class="container">
+  <h1>属性一覧＆追加</h1>
+  <%= form_with model:@attribute, url: admins_attributes_path, local: true do |f| %>
+
+    <%= f.text_field :name %>
+    <%= f.submit '追加' %>
+  <% end %>
+  <table class="table">
+    <% @attributes.each do |attributes| %>
+    <tr>
+      <th><%= attributes.name %></th>
+    </tr>
+    <% end %>
+  </table>
+</div>
