@@ -29,7 +29,7 @@ Rails.application.routes.draw do
     resources :quotes
     get 'quotes/user_posts' => 'quotes#user_posts'
     resources :end_users, only: [:index, :show, :edit, :update]
-    resources :attributes, only: [:index, :create, :edit, :update, :destroy]
+    resources :categories, only: [:index, :create, :update, :destroy]
     resources :person_profiles
   end
 end

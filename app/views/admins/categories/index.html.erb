@@ -1,0 +1,26 @@
+<div class="container">
+  <h1>属性一覧＆追加</h1>
+  <%= form_with model:@new_category, url: admins_categories_path, local: true do |f| %>
+
+    <%= f.text_field :name %>
+    <%= f.submit '追加' %>
+  <% end %>
+  <div class="row">
+    <div class="col-la-6">
+      <table class="table mt-4">
+        <% @categories.each do |category| %>
+        <tr>
+          <th><%= category.name %></th>
+          <th>
+            <%= form_with model:category, url: admins_category_path(category.id), local: true do |f| %>
+              <%= f.text_field :name %>
+              <%= f.submit "変更" %>
+            <% end %>
+            <%= link_to "削除", admins_category_path(category.id), method: :delete %>
+          </th>
+        </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+<div class="container">
+  <h1>偉人プロフィール投稿</h1>
+  <%= form_with model:@person, url: admins_person_profiles_path, local: true do |f| %>
+    <%= f.attachment_field :image %>
+    <%= f.text_field :name %>
+    <%= f.submit "新規登録"%>
+  <% end %>
+</div>
+<script>
+  
+</script>

@@ -1,0 +1,16 @@
+<div class="container">
+  <h1>偉人一覧</h1>
+  <%= link_to "偉人新規登録", new_admins_person_profile_path %>
+  <div class="row">
+    <div class="col-la-7">
+      <table class="table">
+        <% @persons.each do |persons| %>
+        <tr>
+          <th><%= attachment_image_tag persons, :image, :fill, 70, 70, fallback: "no_image.png", size: '70x70' %></th>
+          <th class="h3"><%= link_to persons.name, admins_person_profile_path(persons.id) %></th>
+        </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>

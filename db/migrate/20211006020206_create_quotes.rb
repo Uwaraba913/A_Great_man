@@ -3,7 +3,7 @@ class CreateQuotes < ActiveRecord::Migration[5.2]
     create_table :quotes do |t|
       t.integer :admin_id
       t.integer :end_user_id
-      t.integer :attribute_id, null: false
+      t.integer :category_id, null: false
       t.integer :person_profile_id
       t.string :person_image_id
       t.string :person_name
