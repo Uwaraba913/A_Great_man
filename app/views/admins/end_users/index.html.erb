@@ -1,0 +1,27 @@
+<div class="container">
+  <h1>ユーザー一覧</h1>
+  <table class="table">
+    <tr>
+      <th>登録日</th>
+      <th>ユーザー画像</th>
+      <th>名前</th>
+      <th>投稿数</th>
+      <th>ステータス</th>
+    </tr>
+    <% @end_users.each do |end_user| %>
+    <tr>
+      <th><%= end_user.created_at %></th>
+      <th><%= attachment_image_tag end_user, :image, fill, 70, 70, fallback: "no_image.png", size: '70x70' %></th>
+      <th><%= end_user.name %></th>
+      <th><%= end_user.quotes.count %></th>
+      <th>
+        <% if end_user.is_withdrawal %>
+          <font color="lime">有効</font>
+        <% else %>
+          <font color="silver">退会</font>
+        <% end %>
+      </th>
+    </tr>
+    <% end %>
+  </table>
+</div>

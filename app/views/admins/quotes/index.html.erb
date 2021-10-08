@@ -1,0 +1,22 @@
+<div class="container">
+  <h1>偉人名言一覧（管理者側）</h1>
+  <table class="table">
+    <tr>
+      <th>投稿日</th>
+      <th>偉人画像</th>
+      <th>偉人名</th>
+      <th>カテゴリ</th>
+      <th>名言</th>
+      <th>評価</th>
+    </tr>
+    <% @quotes.each do |quote| %>
+    <tr>
+      <th><%= quote.created_at %></th>
+      <th><%= attachment_image_tag quote.person_profile, :image, :fill, 70, 70, fallback: "no_image.png", size: '70x70' %></th>
+      <th><%= link_to quote.person_profile.name, admins_person_profile_path(quote.person_profile.id) %></th>
+      <th><%= quote.category.name %></th>
+      <th><%= link_to quote.content, admins_quote_path(quote.id) %></th>
+    </tr>
+    <% end %>
+  </table>
+</div>

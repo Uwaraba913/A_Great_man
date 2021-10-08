@@ -1,0 +1,9 @@
+<div class="container">
+  <h1>名言詳細</h1>
+  <%= attachment_image_tag @quote.person_profile, :image, :fill, 150, 150, fallback: "no_image.png", size:'150x150' %>
+  <span class="h2"><%= @quote.category.name %></span><br>
+  <span class="h3"><%= @quote.person_profile.name %></span><br>
+  <%= @quote.content %>
+  <%= link_to "編集", edit_admins_quote_path(@quote.id), class: "btn btn-success" %>
+  <%= link_to "削除", admins_quote_path(@quote.id), method: :delete, class: "btn btn-danger" %>
+</div>

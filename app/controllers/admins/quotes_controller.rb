@@ -2,6 +2,8 @@ class Admins::QuotesController < ApplicationController
 
   def new
     @quote = Quote.new
+    @categories = Category.all
+    @persons = PersonProfile.all
   end
 
   def create
@@ -11,11 +13,11 @@ class Admins::QuotesController < ApplicationController
   end
 
   def index
-    @quotes = Quote.where(admin_id)
+    @quotes = Quote.where(params[:admin_id])
   end
 
   def user_posts
-    @quotes = Quote.where(end_user_id)
+    @quotes = Quote.where(params[:end_user_id])
   end
 
   def show
@@ -24,6 +26,8 @@ class Admins::QuotesController < ApplicationController
 
   def edit
     @quote = Quote.find(params[:id])
+    @categories = Category.all
+    @persons = PersonProfile.all
   end
 
   def update
@@ -35,12 +39,13 @@ class Admins::QuotesController < ApplicationController
   def destroy
     quote = Quote.find(params[:id])
     quote.destroy
+    redirect_to admins_quotes_path
   end
-  
+
   private
-  
+
   def quote_params
-    params.require(:quote).permit(:admin_id, :category_id, :person_profile_id, )
+    params.require(:quote).permit(:admin_id, :category_id, :person_profile_id, :content )
   end
-  
+
 end

@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 2021_10_07_104151) do
     t.string "name", null: false
     t.string "image_id"
     t.text "introduction"
+    t.boolean "is_withdrawal", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_end_users_on_email", unique: true

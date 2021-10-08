@@ -26,8 +26,8 @@ Rails.application.routes.draw do
 
   #管理者側のルーティング
   namespace :admins do
-    resources :quotes
     get 'quotes/user_posts' => 'quotes#user_posts'
+    resources :quotes
     resources :end_users, only: [:index, :show, :edit, :update]
     resources :categories, only: [:index, :create, :update, :destroy]
     resources :person_profiles

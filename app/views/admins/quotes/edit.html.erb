@@ -1,0 +1,18 @@
+<div class="container">
+  <h1>名言情報編集</h1>
+  <%= form_with model:@quote, url: admins_quote_path(@quote), local: true do |f| %>
+    <div class="admin_quote_category">
+      <%= f.label :category_id, "ポジティブorネガティブ" %>
+      <%= f.collection_select :category_id, @categories, :id, :name %>
+    </div>
+    <div class="admin_quote_person">
+      <%= f.label :person_profile_id, "偉人情報選択" %>
+      <%= f.collection_select :person_profile_id, @persons, :id, :name %>
+    </div>
+    <div class="admin_quote_content">
+      <%= f.label :content, "名言内容" %><br>
+      <%= f.text_area :content %>
+    </div>
+    <%= f.submit "更新", class: "btn btn-success"  %>
+  <% end %>
+</div>
