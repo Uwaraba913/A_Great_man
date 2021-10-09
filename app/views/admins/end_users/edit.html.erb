@@ -1,0 +1,34 @@
+<div class="container">
+  <h1>ユーザー情報編集</h1>
+  <%= form_with model: @end_user, url: admins_end_user_path(@end_user.id), local: true do |f| %>
+  <div>
+    <%= f.label :image, "プロフィール画像" %>
+    <%= f.attachment_field :image %>
+    <%= attachment_image_tag @end_user, :image, :fill, 150, 150, fallback: "no_image.png", size: "150x150" %>
+  </div>
+  <table>
+    <tr>
+      <th><%= f.label :name, "ユーザーネーム" %></th>
+      <th><%= f.text_field :name %></th>
+    </tr>
+    <tr>
+      <th><%= f.label :email, "メールアドレス" %></th>
+      <th><%= f.text_field :email %></th>
+    </tr>
+    <tr>
+      <th><%= f.label :introduction, "自己紹介文" %></th>
+      <th><%= f.text_area :introduction %></th>
+    </tr>
+    <tr>
+      <th><%= f.label :is_withdrawal, "会員ステータス" %></th>
+      <th>
+        <%= f.radio_button :is_withdrawal, true, "有効" %>
+        <%= f.radio_button :is_withdrawal, false, "退会" %>
+      </th>
+    </tr>
+    <tr>
+      <th></th>
+      <th><%= f.submit "更新", class: "btn btn-success" %></th>
+    </tr>
+  </table>
+</div>

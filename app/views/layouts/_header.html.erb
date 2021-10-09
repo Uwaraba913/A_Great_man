@@ -10,10 +10,10 @@
         <li><%= link_to "ランダム名言", homes_random_path %></li>
         <li><%= link_to "名（迷）言一覧", quotes_path %></li>
         <li><%= link_to "ユーザー投稿名言", quotes_user_posts_path %></li>
-        <li><%= link_to "偉人名簿", person_profiles %></li>
+        <li><%= link_to "偉人名簿", person_profiles_path %></li>
       </ul>
-      <ul class="nav"><%= current_user.name %>
-        <li><%= link_to "マイページ", end_user_path(current_user.id) %></li>
+      <ul class="nav"><%= current_end_user.name %>
+        <li><%= link_to "マイページ", end_user_path(current_end_user.id) %></li>
         <li><%= link_to "名（迷）言投稿", new_quote_path %></li>
         <li><%= link_to "ログアウト", destroy_end_user_session_path, method: :delete %></li>
       </ul>

@@ -1,0 +1,42 @@
+<div class="container">
+  <%= form_with model:@quote, local: true do |f| %>
+  <div class="row">
+    <div class="col-la-4">
+      <%= attachment_image_tag @quote, :person_image, :fill, 150, 150, fallback: "no_image.png", size: "150x150" %><br>
+      <%= f.attachment_field :person_image %>
+    </div>
+    <div class="col-la-8">
+      <table>
+        <tr>
+          <th>
+            ポジティブor<br>
+            ネガティブ
+          </th>
+          <th><%= f.collection_select :category_id, @categories, :id, :name %></th>
+        </tr>
+        <tr>
+          <th>
+            発言者名<br>
+            (20文字以内)
+          </th>
+          <th><%= f.text_field :person_name %></th>
+        </tr>
+        <tr>
+          <th>
+            名（迷）言<br>
+            (100文字以内)
+          </th>
+          <th><%= f.text_area :content %></th>
+        </tr>
+        <tr>
+          <th></th>
+          <th>
+            <%= f.hidden_field :end_user_id, value: current_end_user.id %>
+            <%= f.submit "投稿", class: "btn btn-light" %>
+          </th>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <% end %>
+</div>

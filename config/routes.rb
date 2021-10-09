@@ -17,11 +17,11 @@ Rails.application.routes.draw do
   get 'homes/random' => 'homes#random'
 
   #ユーザー側のルーティング
-  resources :quotes
   get 'quotes/user_posts' => 'quotes#user_posts' #ユーザーの投稿と管理者側の投稿を分けるためにページも別々に
+  get 'end_users/withdrawal' => 'end_users#withdrawal' #退会確認ページ
+  patch 'end_users/unsubscribe' => 'end_users#unsubscribe' #退会フラグを更新する
+  resources :quotes
   resources :end_users, only: [:show, :edit, :update]
-  get 'end_users/withdrawal' => 'end_users#withdrawal'
-  patch 'end_users/unsubscribe' => 'end_users#unsubscribe'
   resources :person_profiles, only: [:index, :show]
 
   #管理者側のルーティング

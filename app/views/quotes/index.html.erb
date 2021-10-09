@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+      <% @quotes.each do |quote| %>
+      <div class="quote-index bg-light color-white fly shadow">
+        <div class="container">
+          <div row="row">
+            <%= link_to quote_path(quote.id) do %>
+              <div class="col-4">
+                <%= attachment_image_tag quote.person_profile, :image, fallback: "no_image.png", size: "60x60" %>
+              </div>
+              <div class="col-8">
+                <%= quote.created_at %>
+                <%= quote.person_profile.name %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+  </div>
+</div>

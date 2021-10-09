@@ -1,0 +1,39 @@
+<div class="container">
+  <%= form_with model:@end_user, local: true do |f| %>
+  <div class="row">
+    <div class="col-la-4">
+      <%= attachment_image_tag @end_user, :image, :fill, 150, 150, fallback: "no_image.png", size: "150x150" %><br>
+      <%= f.attachment_field :image %>
+    </div>
+    <div class="col-la-8">
+      <table>
+        <tr>
+          <th>
+            ユーザーネーム<br>
+            (20文字以内)
+          </th>
+          <th><%= f.text_field :name %></th>
+        </tr>
+        <tr>
+          <th>メールアドレス</th>
+          <th><%= f.text_field :email %></th>
+        </tr>
+        <tr>
+          <th>
+            自己紹介文<br>
+            (100文字以内)
+          </th>
+          <th><%= f.text_area :introduction %></th>
+        </tr>
+        <tr>
+          <th></th>
+          <th>
+            <%= f.submit "情報を更新", class: "btn btn-light" %>
+            <span class="pl-5"><%= link_to "退会する", end_users_withdrawal_path, class: "btn btn-danger" %></span>
+          </th>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <% end %>
+</div>

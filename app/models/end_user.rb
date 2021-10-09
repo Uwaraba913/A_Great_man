@@ -5,5 +5,5 @@ class EndUser < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :quotes, dependent: :destroy
-
+  attachment :image
 end

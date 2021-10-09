@@ -1,0 +1,25 @@
+<div class="container">
+  <h1>ユーザー詳細</h1>
+  <div class="row">
+    <div class="col-la-4">
+      <%= attachment_image_tag end_user, :image, :fill, 150, 150, fallback: "no_image.png", size: '150x150' %>
+    </div>
+    <div class="col-la-7">
+      <table class="table">
+        <tr>
+          <th><%= @end_user.name %></th>
+          <th><%= @end_user.email %></th>
+          <th><%= @end_user.introduction %></th>
+          <th>
+            <% if @end_user.is_withdrawal %>
+              <font color="lime">有効</font>
+            <% else %>
+              <font color="silver">退会</font>
+            <% end %>
+          </th>
+        </tr>
+        <%= link_to "編集", admins_edit_end_user_path(@end_user.id), class: "btn btn-success" %>
+      </table>
+    </div>
+  </div>
+</div>

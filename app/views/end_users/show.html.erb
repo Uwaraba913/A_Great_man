@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row">
+    <div class="col-la-4">
+      <%= attachment_image_tag @end_user, :image, :fill, 150, 150, fallback: "no_image.png", size: "150x150" %>
+    </div>
+    <div class="col-la-8 ml-4">
+      <div class="user_profile">
+        <h3><%= @end_user.name %></h3><br>
+        <%= @end_user.introduction %><br>
+        <%= link_to "プロフィール編集", edit_end_user_path(@end_user.id), class: "btn btn-light" %>
+      </div>
+    </div>
+  </div>
+</div>
