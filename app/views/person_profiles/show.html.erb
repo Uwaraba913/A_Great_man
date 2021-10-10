@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+    <div class="col-4 text-center">
+      <%= attachment_image_tag @person, :image, fallback: "no_image.png", size: "150x150" %>
+    </div>
+    <div class="col-8">
+      <h3><%= @person.name %></h3>
+    </div>
+  </div>
+    <h2 class="mt-5">名言一覧</h2>
+  <% @quotes.each do |quote| %>
+    <div class="person-profile-quote d-flex flex-row align-items-center">
+      <% if quote.category.name == "ポジティブ" %>
+        <span class="positive-icon"><%= quote.category.name %></span>
+      <% else %>
+        <span class="negative-icon"><%= quote.category.name %></span>
+      <% end %>
+      <div><%= quote.content %></div>
+    </div>
+  <% end %>
+</div>

@@ -20,7 +20,9 @@ Rails.application.routes.draw do
   get 'quotes/user_posts' => 'quotes#user_posts' #ユーザーの投稿と管理者側の投稿を分けるためにページも別々に
   get 'end_users/withdrawal' => 'end_users#withdrawal' #退会確認ページ
   patch 'end_users/unsubscribe' => 'end_users#unsubscribe' #退会フラグを更新する
-  resources :quotes
+  resources :quotes do
+    resource :evaluations, only: [:create, :destroy]
+  end
   resources :end_users, only: [:show, :edit, :update]
   resources :person_profiles, only: [:index, :show]
 

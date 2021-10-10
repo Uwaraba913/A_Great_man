@@ -1,16 +1,25 @@
 <div class="container">
   <div class="row">
       <% @quotes.each do |quote| %>
-      <div class="quote-index bg-light color-white fly shadow">
-        <div class="container">
-          <div row="row">
+      <div class="col">
+        <div class="quote-index bg-light color-white fly shadow">
             <%= link_to quote_path(quote.id) do %>
-              <div class="col-4">
-                <%= attachment_image_tag quote.person_profile, :image, fallback: "no_image.png", size: "60x60" %>
+              <div class="person-profile d-flex flex-row">
+                <div>
+                  <%= attachment_image_tag quote.person_profile, :image, fallback: "no_image.png", size: "60x60" %>
+                </div>
+                <div>
+                  <% if quote.category.name == "ポジティブ" %>
+                    <span class="positive-icon"><%= quote.category.name %></span>
+                  <% else %>
+                    <span class="negative-icon"><%= quote.category.name %></span>
+                  <% end %>
+                  <%= l quote.created_at %><br>
+                  <%= quote.person_profile.name %>
+                </div>
               </div>
-              <div class="col-8">
-                <%= quote.created_at %>
-                <%= quote.person_profile.name %>
+              <div class="person-content">
+                <%= quote.content %>
               </div>
             <% end %>
           </div>

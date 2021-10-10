@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 2021_10_07_104151) do
   create_table "comments", force: :cascade do |t|
     t.integer "end_user_id", null: false
     t.integer "quote_id", null: false
-    t.text "comment"
+    t.text "quote_comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(version: 2021_10_07_104151) do
   create_table "evaluations", force: :cascade do |t|
     t.integer "end_user_id", null: false
     t.integer "quote_id", null: false
-    t.integer "evaluation"
+    t.integer "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

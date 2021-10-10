@@ -3,7 +3,7 @@ class CreateEvaluations < ActiveRecord::Migration[5.2]
     create_table :evaluations do |t|
       t.integer :end_user_id, null: false
       t.integer :quote_id, null: false
-      t.integer :evaluation
+      t.integer :status
 
       t.timestamps
     end

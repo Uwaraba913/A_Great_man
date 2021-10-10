@@ -9,15 +9,27 @@
       <% end %>
     </div>
     <div class="col-la-8">
-      <h4><%= @quote.category.name %>　<%= @quote.created_at %></h4>
+      <h4><%= @quote.category.name %>　<%= l @quote.created_at %></h4>
       <% if @quote.admin_id %>
         <h3><%= @quote.person_profile.name %></h3>
       <% else %>
         <h3><%= @quote.person_name %></h3>
-        <% if @quote.end_user_id %>
-          <% if current_end_user.id == @quote.end_user.id %>
-            <%= link_to "編集", edit_quote_path(@quote.id), class: "btn btn-success" %>
-          <% end %>
+      <% end %>
+
+      <%# if @quote.evaluationed_by?(current_end_user) %>
+        <%= link_to quote_evaluations_path(@quote.id, status: 'good'),  method: :post do %>
+          good<%= @quote.evaluation_good.count %>
+        <% end %>
+        
+      <%# else %>
+        <%= link_to quote_evaluations_path(@quote.id, status: 'bad'), method: :post do %>
+          bad<%= @quote.evaluation_bad.count %>
+        <% end %>
+      <%# end %>
+
+      <% if @quote.end_user_id %>
+        <% if current_end_user.id == @quote.end_user.id %>
+          <%= link_to "編集", edit_quote_path(@quote.id), class: "btn btn-success" %>
         <% end %>
       <% end %>
     </div>
