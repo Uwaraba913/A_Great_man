@@ -21,6 +21,8 @@ class QuotesController < ApplicationController
 
   def show
     @quote = Quote.find(params[:id])
+    @end_user = @quote.end_user
+    @comment = Comment.new
   end
 
   def edit

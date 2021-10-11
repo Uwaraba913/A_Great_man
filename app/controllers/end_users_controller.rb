@@ -23,6 +23,16 @@ class EndUsersController < ApplicationController
     end_user.update(end_user_params)
   end
 
+  def following
+    @end_user = EndUser.find_by(id: params[:id])
+    @end_users = @end_user.followings
+  end
+
+  def followers
+    @end_user = EndUser.find_by(id: params[:id])
+    @end_users = @end_user.followers
+  end
+
   private
 
   def end_user_params

@@ -4,6 +4,7 @@ class Quote < ApplicationRecord
   belongs_to :person_profile, optional: true
   belongs_to :category
   has_many :evaluations, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   attachment :person_image
 

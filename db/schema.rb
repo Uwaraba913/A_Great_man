@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 2021_10_07_104151) do
   create_table "comments", force: :cascade do |t|
     t.integer "end_user_id", null: false
     t.integer "quote_id", null: false
-    t.text "quote_comment"
+    t.text "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -91,7 +91,7 @@ ActiveRecord::Schema.define(version: 2021_10_07_104151) do
 
   create_table "relationships", force: :cascade do |t|
     t.integer "follower_id"
-    t.integer "followed_id"
+    t.integer "following_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -11,7 +11,7 @@
     <div class="col-la-8">
       <h4><%= @quote.category.name %>　<%= l @quote.created_at %></h4>
       <% if @quote.admin_id %>
-        <h3><%= @quote.person_profile.name %></h3>
+        <h3><%= link_to @quote.person_profile.name, person_profile_path(@quote.person_profile.id) %></h3>
       <% else %>
         <h3><%= @quote.person_name %></h3>
       <% end %>
@@ -20,7 +20,7 @@
         <%= link_to quote_evaluations_path(@quote.id, status: 'good'),  method: :post do %>
           good<%= @quote.evaluation_good.count %>
         <% end %>
-        
+
       <%# else %>
         <%= link_to quote_evaluations_path(@quote.id, status: 'bad'), method: :post do %>
           bad<%= @quote.evaluation_bad.count %>
@@ -44,6 +44,25 @@
       <%= link_to end_user_path(@quote.end_user_id) do %>
         <%= attachment_image_tag @quote.end_user, :image, fallback: "no_image.png", size: "50x50" %>
         <%= @quote.end_user.name %>
+        <%= render 'relationships/follow', end_user: @end_user %>
+      <% end %>
+    <% end %>
+
+    <%= form_with(model:[@quote, @comment], local: true) do |f| %>
+      <div class="mt-4">
+        <%= attachment_image_tag current_end_user, :image, fallback: "no_image.png", size: "50x50" %>
+        <%= f.text_field :comment, class: "form-control" %>
+        <%= f.submit "送信", class: "btn btn-primary"%>
+      </div>
+    <% end %>
+
+    <% @quote.comments.each do |comment| %>
+      <%= attachment_image_tag comment.end_user, :image, fallback: "no_image.png", size: "50x50" %>
+      <%= comment.end_user.name %>
+      <%= comment.comment %>
+      <% if current_end_user.id == comment.end_user_id %>
+        <%= link_to "削除", quote_comment_path(comment.quote_id, comment.id), method: :delete %>
+        
       <% end %>
     <% end %>
   </div>
