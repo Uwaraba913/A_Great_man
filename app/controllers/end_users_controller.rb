@@ -24,7 +24,7 @@ class EndUsersController < ApplicationController
   end
 
   def following
-    @end_user = EndUser.find_by(id: params[:id])
+    @end_user = EndUser.find(id: params[:id])
     @end_users = @end_user.followings
   end
 

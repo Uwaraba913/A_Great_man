@@ -12,5 +12,10 @@
   <body>
     <%= render 'layouts/header' %>
     <%= yield %>
+    <footer>
+      <% if end_user_signed_in? %>
+        
+      <% end %>
+    </footer>
   </body>
 </html>

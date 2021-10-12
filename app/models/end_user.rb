@@ -7,6 +7,7 @@ class EndUser < ApplicationRecord
   has_many :quotes, dependent: :destroy
   has_many :evaluations, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :content
 
   has_many :following_relationships, foreign_key: "follower_id", class_name: "Relationship", dependent: :destroy
   has_many :followings, through: :following_relationships
