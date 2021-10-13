@@ -8,13 +8,13 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  
+
   <body>
     <%= render 'layouts/header' %>
     <%= yield %>
     <footer>
       <% if end_user_signed_in? %>
-        
+        <%= link_to "お問い合わせ", new_contact_path %>
       <% end %>
     </footer>
   </body>

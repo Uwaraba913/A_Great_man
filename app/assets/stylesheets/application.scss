@@ -31,6 +31,27 @@ th {
   padding :5px;
 }
 
+.menu {
+  list-style-type: none;
+  text-align: center;
+  cursor: pointer;
+}
+
+.menu>li{
+  margin: 1px;
+  display: inline;
+}
+
+.nav_menu {
+  list-style-type: none;
+  display: none;
+  position: absolute;
+}
+
+.nav_menu>li {
+  font-size: 80%;
+}
+
 .quote-index {
   width :300px;
 }

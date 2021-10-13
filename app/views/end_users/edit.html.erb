@@ -29,7 +29,7 @@
           <th></th>
           <th>
             <%= f.submit "情報を更新", class: "btn btn-light" %>
-            <span class="pl-5"><%= link_to "退会する", end_users_withdrawal_path, class: "btn btn-danger" %></span>
+            <span class="pl-5"><%= link_to "退会する", withdrawal_path(@end_user.id), class: "btn btn-danger" %></span>
           </th>
         </tr>
       </table>

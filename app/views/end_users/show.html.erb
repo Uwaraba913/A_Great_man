@@ -6,8 +6,13 @@
     <div class="col-la-8 ml-4">
       <div class="user_profile">
         <h3><%= @end_user.name %></h3>
-        <%= @end_user.introduction %><br>
-        <%= link_to "フォロー中", end_user_end_users_following_path(@end_user), class: "btn" %>
+        <p><%= @end_user.introduction %></p>
+        <%= link_to follow_list_path(@end_user), class: "btn btn-outline-primary" do %>
+          <%= @end_user.followings.count%> フォロー
+        <% end %>
+        <%= link_to follower_list_path(@end_user), class: "btn btn-outline-info" do %>
+          <%= @end_user.followers.count %> フォロワー
+        <% end %>
         <% if current_end_user == @end_user %>
           <%= link_to "プロフィール編集", edit_end_user_path(@end_user.id), class: "btn btn-light" %>
         <% else %>
@@ -15,5 +20,10 @@
         <% end %>
       </div>
     </div>
+  </div>
+  <div class="row">
+    <% @quotes.each do |quote|%>
+      <%= attachment_image_tag quote, :person_image, fallback: "no_image.png", size: "60x60" %>
+    <% end %>
   </div>
 </div>

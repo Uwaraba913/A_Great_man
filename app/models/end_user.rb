@@ -27,5 +27,9 @@ class EndUser < ApplicationRecord
   def unfollow(other_end_user)
     following_relationships.find_by(following_id: other_end_user.id).destroy
   end
+  
+  def active_for_authentication?
+    super && (self.is_withdrawal == true)
+  end
 
 end

@@ -1,6 +1,6 @@
 <div class="container">
   <h2>ログイン</h2>
-
+  <font color="red"><%= notice %></font>
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="field">
       <%= f.label :email, "登録したメールアドレス" %><br />

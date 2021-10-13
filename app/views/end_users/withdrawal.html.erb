@@ -1,0 +1,17 @@
+<div class="container">
+  <h1>！退会の前に必ずご確認ください！</h1>
+  <p>退会するとこのアカウントで以下の機能が利用できなくなります</p>
+  <ul>
+    <li>名言投稿機能</li>
+    <li>コメント機能</li>
+    <li>評価機能</li>
+    <li>フォロー及びフォロワー機能</li>
+    <li>ユーザー投稿名言</li>
+  </ul>
+  <p>
+    ※投稿した内容は退会しても削除されません。<br>
+    削除したい投稿がある場合は必ず投稿を削除した後に退会してください。
+  </p>
+  <%= link_to "退会する", unsubscribe_path(@end_user.id), method: :patch, class: "btn btn-danger btn-lg", data: {comfirm: "本当に退会しますか?"} %>
+  <%= link_to "退会しない", end_user_path(@end_user.id), class: "btn btn-info btn-lg" %>
+</div>
