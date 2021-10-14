@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-la-4">
-      <%= attachment_image_tag @end_user, :image, :fill, 150, 150, fallback: "no_image.png", size: "150x150" %>
+      <%= attachment_image_tag @end_user, :image, fallback: "no_image.png", size: "150x150" %>
     </div>
     <div class="col-la-8 ml-4">
       <div class="user_profile">
@@ -20,5 +20,19 @@
         <% end %>
       </div>
     </div>
+  </div>
+  <div class="row">
+    <%= @end_users.each do |end_user| %>
+      <div class="col-3">
+        <%= attachment_image_tag end_user, :image, fallback: "no_image.png", size: "80x80" %>
+      </div>
+      <div class="col-3">
+        <%= end_user.name %>
+        <%= render 'relationships/follow', end_user: @end_user %>
+      </div>
+      <div class="col-5">
+        <%= end_user.introduction %>
+      </div>
+    <% end %>
   </div>
 </div>
