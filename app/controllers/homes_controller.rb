@@ -7,6 +7,8 @@ class HomesController < ApplicationController
   end
 
   def random
+    @posi_quote = Quote.where.not(admin_id: nil, category_id: 3).order("RANDOM()").first
+    @nega_quote = Quote.where.not(admin_id: nil, category_id: 2).order("RANDOM()").first
   end
 
 end

@@ -1,0 +1,18 @@
+<div class="container">
+  <h1>あなたが授かりたい名（迷）言は…</h1>
+  <div class="row">
+    <div>
+      <%= link_to quote_path(@posi_quote.id) do %>
+        <div>ポジティブ</div>
+        <div>ですか？</div>
+      <% end %>
+    </div>
+    <div>それとも</div>
+    <div>
+      <%= link_to quote_path(@nega_quote.id) do %>
+        <div>ネガティブ</div>
+        <div>ですか？</div>
+      <% end %>
+    </div>
+  </div>
+</div>
