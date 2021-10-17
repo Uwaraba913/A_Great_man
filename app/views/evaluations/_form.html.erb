@@ -1,0 +1,10 @@
+  <%# if @quote.evaluationed_by?(current_end_user) %>
+    <%= link_to quote_evaluations_path(quote.id, status: 'good'), method: :post, remote: true do %>
+      good<%= quote.evaluation_good.count %>
+    <% end %>
+
+  <%# else %>
+    <%= link_to quote_evaluations_path(quote.id, status: 'bad'), method: :post, remote: true do %>
+      bad<%= quote.evaluation_bad.count %>
+    <% end %>
+  <%# end %>

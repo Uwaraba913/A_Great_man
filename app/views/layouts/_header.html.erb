@@ -1,4 +1,10 @@
 <header>
+  <%= form_with url: quotes_path, method: :get, local: true do |f| %>
+    <%= f.select :quote_selection, [['偉人名(迷)言'], ['ユーザー名(迷)言']] %>
+    <%= f.text_field :word %>
+    <%= f.submit "検索" %>
+  <% end %>
+
   <ul class="menu d-flex flex-row">
       <li class="nav">まず始めに |
         <ul class="nav_menu">

@@ -12,7 +12,18 @@ class QuotesController < ApplicationController
   end
 
   def index
-    @quotes = Quote.where.not(admin_id: nil)
+    if params[:quote_selection] == '偉人名(迷)言'
+      if params[:word]
+        @quotes = Quote.where.not(admin_id: nil).where('content LIKE?', "%#{params[:word]}%")
+      else
+        @quotes = Quote.where.not(admin_id: nil)
+      end
+    else
+      if params[:word]
+        @quotes = Quote.where.not(end_user_id: nil).where('content LIKE?', "%#{params[:word]}%")
+      end
+      render '/quotes/user_posts'
+    end
   end
 
   def user_posts

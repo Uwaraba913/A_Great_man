@@ -5,12 +5,11 @@ class CommentsController < ApplicationController
     @comment = current_end_user.comments.new(comment_params)
     @comment.quote_id = @quote.id
     @comment.save
-    redirect_to request.referer
   end
 
   def destroy
-    Comment.find(params[:id]).destroy
-    redirect_to request.referer
+    @quote = Quote.find(params[:quote_id])
+    Comment.find_by(quote_id: @quote.id).destroy
   end
 
   private

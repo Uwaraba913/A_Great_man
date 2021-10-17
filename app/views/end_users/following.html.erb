@@ -22,7 +22,7 @@
     </div>
   </div>
   <div class="row">
-    <%= @end_users.each do |end_user| %>
+    <% @end_users.each do |end_user| %>
       <div class="col-3">
         <%= attachment_image_tag end_user, :image, fallback: "no_image.png", size: "80x80" %>
       </div>

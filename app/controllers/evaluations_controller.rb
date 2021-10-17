@@ -19,7 +19,6 @@ class EvaluationsController < ApplicationController
           @evaluation.destroy
         end
       end
-    redirect_to request.referer
   end
 
 end

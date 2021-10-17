@@ -30,13 +30,11 @@ class EndUsersController < ApplicationController
   def following
     @end_user = EndUser.find(params[:id])
     @end_users = @end_user.followings
-    @quotes = @end_user.quote.limit(3).order(created_at: :desc)
   end
 
   def followers
     @end_user = EndUser.find_by(id: params[:id])
     @end_users = @end_user.followers
-    @quotes = @end_user.quote.limit(3).order(created_at: :desc)
   end
 
   private
