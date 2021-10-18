@@ -1,4 +1,5 @@
 class EvaluationsController < ApplicationController
+  before_action :authenticate_end_user!
   def create
     @quote = Quote.find(params[:quote_id])
       if current_end_user.evaluations.exists?(quote_id: @quote.id, status: params[:status]) #既に存在する場合

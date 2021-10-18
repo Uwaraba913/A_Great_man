@@ -1,5 +1,5 @@
 class Admins::PersonProfilesController < ApplicationController
-
+  
   def new
     @person = PersonProfile.new
   end

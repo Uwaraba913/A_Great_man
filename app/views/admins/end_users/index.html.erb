@@ -10,9 +10,9 @@
     </tr>
     <% @end_users.each do |end_user| %>
     <tr>
-      <th><%= end_user.created_at %></th>
-      <th><%= attachment_image_tag end_user, :image, fill, 70, 70, fallback: "no_image.png", size: '70x70' %></th>
-      <th><%= end_user.name %></th>
+      <th><%= l end_user.created_at %></th>
+      <th><%= attachment_image_tag end_user, :image, fallback: "no_image.png", size: '70x70' %></th>
+      <th><%= link_to end_user.name, admins_end_user_path(end_user.id) %></th>
       <th><%= end_user.quotes.count %></th>
       <th>
         <% if end_user.is_withdrawal %>

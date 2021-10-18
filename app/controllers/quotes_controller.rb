@@ -1,5 +1,5 @@
 class QuotesController < ApplicationController
-
+  before_action :authenticate_end_user!, only: [:new, :create, :user_posts, :edit, :update, :destroy]
   def new
     @quote = Quote.new
     @categories = Category.all
@@ -15,14 +15,20 @@ class QuotesController < ApplicationController
     if params[:quote_selection] == '偉人名(迷)言'
       if params[:word]
         @quotes = Quote.where.not(admin_id: nil).where('content LIKE?', "%#{params[:word]}%")
-      else
-        @quotes = Quote.where.not(admin_id: nil)
+        if params[:evaluation_ranking] == 'good'
+          @quotes.order(:evaluation_good.count desc)
+        end
       end
-    else
+    elsif params[:quote_selection] == 'ユーザー名(迷)言'
       if params[:word]
         @quotes = Quote.where.not(end_user_id: nil).where('content LIKE?', "%#{params[:word]}%")
       end
       render '/quotes/user_posts'
+    else
+      @quotes = Quote.where.not(admin_id: nil)
+      if params[:evaluation_ranking] == 'good'
+        @quotes = Quote.left_joins(:good_evaluations).where.not(admin_id: nil).order("cnt_good desc").group(:id).select("quotes.*, count(evaluations.quote_id) cnt_good")
+      end
     end
   end
 

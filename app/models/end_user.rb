@@ -16,6 +16,14 @@ class EndUser < ApplicationRecord
 
   attachment :image
 
+  validates :name,
+    presence: true,
+    length: { maximum: 20 }
+  validates :introduction,
+    length: { maximum: 100 }
+  validates :email,
+    uniqueness: true
+
   def following?(other_end_user)
     following_relationships.find_by(following_id: other_end_user.id)
   end

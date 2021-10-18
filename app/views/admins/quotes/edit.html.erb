@@ -1,18 +1,32 @@
 <div class="container">
   <h1>名言情報編集</h1>
   <%= form_with model:@quote, url: admins_quote_path(@quote), local: true do |f| %>
-    <div class="admin_quote_category">
-      <%= f.label :category_id, "ポジティブorネガティブ" %>
-      <%= f.collection_select :category_id, @categories, :id, :name %>
-    </div>
-    <div class="admin_quote_person">
-      <%= f.label :person_profile_id, "偉人情報選択" %>
-      <%= f.collection_select :person_profile_id, @persons, :id, :name %>
-    </div>
-    <div class="admin_quote_content">
-      <%= f.label :content, "名言内容" %><br>
-      <%= f.text_area :content %>
-    </div>
-    <%= f.submit "更新", class: "btn btn-success"  %>
+  <% if @quote.end_user_id %>
+    <%= attachment_image_tag @quote, :person_image, :fill, 150, 150, fallback: "no_image.png", size: "100x100" %>
+    <%= f.attachment_field :person_image %>
+  <% end %>
+    <table>
+      <tr>
+        <th><%= f.label :category_id, "ポジティブorネガティブ" %></th>
+        <th><%= f.collection_select :category_id, @categories, :id, :name %></th>
+      </tr>
+      <tr>
+        <% if @quote.admin_id %>
+          <th><%= f.label :person_profile_id, "偉人情報選択" %></th>
+          <th><%= f.collection_select :person_profile_id, @persons, :id, :name %></th>
+        <% else %>
+          <th><%= f.label :person_name, "発言者名" %></th>
+          <th><%= f.text_field :person_name %><th>
+        <% end %>
+      </tr>
+      <tr>
+        <th><%= f.label :content, "名言内容" %></th>
+        <th><%= f.text_area :content %></th>
+      </tr>
+      <tr>
+        <th></th>
+        <th><%= f.submit "更新", class: "btn btn-success"  %></th>
+      </tr>
+    </table>
   <% end %>
 </div>

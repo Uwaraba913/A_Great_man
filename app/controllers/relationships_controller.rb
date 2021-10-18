@@ -1,5 +1,5 @@
 class RelationshipsController < ApplicationController
-
+  before_action :authenticate_end_user!
   def create
     @end_user = EndUser.find(params[:end_user_id])
     current_end_user.follow(@end_user)

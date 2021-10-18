@@ -1,11 +1,12 @@
 class Admins::EndUsersController < ApplicationController
-
+  before_action :authenticate_admin!
   def index
     @end_users = EndUser.all
   end
 
   def show
     @end_user = EndUser.find(params[:id])
+    @quotes = @end_user.quotes
   end
 
   def edit

@@ -1,25 +1,61 @@
 <div class="container">
   <h1>ユーザー詳細</h1>
   <div class="row">
-    <div class="col-la-4">
-      <%= attachment_image_tag end_user, :image, :fill, 150, 150, fallback: "no_image.png", size: '150x150' %>
+    <div>
+      <%= attachment_image_tag @end_user, :image, fallback: "no_image.png", size: '100x100' %><br>
+      <%= link_to "編集", edit_admins_end_user_path(@end_user.id), class: "btn btn-success" %>
     </div>
-    <div class="col-la-7">
-      <table class="table">
-        <tr>
-          <th><%= @end_user.name %></th>
-          <th><%= @end_user.email %></th>
-          <th><%= @end_user.introduction %></th>
-          <th>
-            <% if @end_user.is_withdrawal %>
-              <font color="lime">有効</font>
-            <% else %>
-              <font color="silver">退会</font>
-            <% end %>
-          </th>
-        </tr>
-        <%= link_to "編集", admins_edit_end_user_path(@end_user.id), class: "btn btn-success" %>
-      </table>
-    </div>
-  </div>
+    <table>
+      <tr>
+        <th>ユーザーネーム</th>
+        <th><%= @end_user.name %>
+      </tr>
+      <tr>
+        <th>メールアドレス</th>
+        <th><%= @end_user.email %></th>
+      </tr>
+      <tr>
+        <th>自己紹介</th>
+        <th><%= @end_user.introduction %></th>
+      </tr>
+      <tr>
+        <th>ステータス</th>
+        <th>
+          <% if @end_user.is_withdrawal %>
+            <font color="lime">有効</font>
+          <% else %>
+            <font color="silver">退会</font>
+          <% end %>
+        </th>
+      </tr>
+    </table>
+
+
+  <table class="table mt-4">
+    <tr>
+      <th>投稿日</th>
+      <th>発言者画像</th>
+      <th>発言者名</th>
+      <th>カテゴリ</th>
+      <th>名(迷)言</th>
+      <th>評価</th>
+    </tr>
+    <% @quotes.each do |quote| %>
+    <tr>
+      <th><%= l quote.created_at %></th>
+      <th><%= attachment_image_tag quote, :person_image, fallback: "no_image.png", size: "60x60" %></th>
+      <th><%= quote.person_name %></th>
+      <% if quote.category.name == "ポジティブ" %>
+        <th><div class="positive-icon"><%= quote.category.name %></div></th>
+      <% else %>
+        <th><div class="negative-icon"><%= quote.category.name %></div></th>
+      <% end %>
+      <th><%= quote.content %></th>
+      <th>
+        G<%= quote.evaluation_good.count %><br>
+        B<%= quote.evaluation_bad.count %>
+      </th>
+    </tr>
+    <% end %>
+  </table>
 </div>

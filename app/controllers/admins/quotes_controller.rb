@@ -1,5 +1,5 @@
 class Admins::QuotesController < ApplicationController
-
+  before_action :authenticate_admin!
   def new
     @quote = Quote.new
     @categories = Category.all
@@ -13,11 +13,11 @@ class Admins::QuotesController < ApplicationController
   end
 
   def index
-    @quotes = Quote.where(params[:admin_id])
+    @quotes = Quote.where.not(admin_id: nil)
   end
 
   def user_posts
-    @quotes = Quote.where(params[:end_user_id])
+    @quotes = Quote.where.not(end_user_id: nil)
   end
 
   def show

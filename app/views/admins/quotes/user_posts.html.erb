@@ -1,0 +1,26 @@
+<div class="container">
+  <h1>偉人名言一覧（管理者側）</h1>
+  <table class="table">
+    <tr>
+      <th>投稿日</th>
+      <th>偉人画像</th>
+      <th>偉人名</th>
+      <th>カテゴリ</th>
+      <th>名言</th>
+      <th>評価</th>
+    </tr>
+    <% @quotes.each do |quote| %>
+    <tr>
+      <th><%= l quote.created_at %></th>
+      <th><%= attachment_image_tag quote, :person_image, :fill, 70, 70, fallback: "no_image.png", size: '70x70' %></th>
+      <th><%= quote.person_name %></th>
+      <th><%= quote.category.name %></th>
+      <th><%= link_to quote.content, admins_quote_path(quote.id) %></th>
+      <th>
+        G<%= quote.evaluation_good.count %>
+        B<%= quote.evaluation_bad.count %>
+      </th>
+    </tr>
+    <% end %>
+  </table>
+</div>

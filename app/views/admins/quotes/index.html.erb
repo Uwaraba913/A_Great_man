@@ -11,11 +11,15 @@
     </tr>
     <% @quotes.each do |quote| %>
     <tr>
-      <th><%= quote.created_at %></th>
+      <th><%= l quote.created_at %></th>
       <th><%= attachment_image_tag quote.person_profile, :image, :fill, 70, 70, fallback: "no_image.png", size: '70x70' %></th>
       <th><%= link_to quote.person_profile.name, admins_person_profile_path(quote.person_profile.id) %></th>
       <th><%= quote.category.name %></th>
       <th><%= link_to quote.content, admins_quote_path(quote.id) %></th>
+      <th>
+        G<%= quote.evaluation_good.count %>
+        B<%= quote.evaluation_bad.count %>
+      </th>
     </tr>
     <% end %>
   </table>

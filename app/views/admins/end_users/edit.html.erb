@@ -4,7 +4,7 @@
   <div>
     <%= f.label :image, "プロフィール画像" %>
     <%= f.attachment_field :image %>
-    <%= attachment_image_tag @end_user, :image, :fill, 150, 150, fallback: "no_image.png", size: "150x150" %>
+    <%= attachment_image_tag @end_user, :image, fallback: "no_image.png", size: "100x100" %>
   </div>
   <table>
     <tr>
@@ -22,8 +22,10 @@
     <tr>
       <th><%= f.label :is_withdrawal, "会員ステータス" %></th>
       <th>
-        <%= f.radio_button :is_withdrawal, true, "有効" %>
-        <%= f.radio_button :is_withdrawal, false, "退会" %>
+        <%= f.label :is_withdrawal, '有効' %>
+        <%= f.radio_button :is_withdrawal, :true %>
+        <%= f.label :is_withdrawal, '退会' %>
+        <%= f.radio_button :is_withdrawal, :false %>
       </th>
     </tr>
     <tr>
@@ -31,4 +33,5 @@
       <th><%= f.submit "更新", class: "btn btn-success" %></th>
     </tr>
   </table>
+  <% end %>
 </div>
