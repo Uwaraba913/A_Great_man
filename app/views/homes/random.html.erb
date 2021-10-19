@@ -3,16 +3,16 @@
   <div class="row">
     <div>
       <%= link_to quote_path(@posi_quote.id) do %>
-        <div>ポジティブ</div>
-        <div>ですか？</div>
+        <div class="posi-randam h3">ポジティブ</div>
       <% end %>
+      <div class="text-center h4">ですか？</div>
     </div>
-    <div>それとも</div>
+    <div class="mx-4 d-flex align-items-center h2">それとも</div>
     <div>
       <%= link_to quote_path(@nega_quote.id) do %>
-        <div>ネガティブ</div>
-        <div>ですか？</div>
+        <div class="nega-randam h3">ネガティブ</div>
       <% end %>
+      <div class="text-center h4">ですか？</div>
     </div>
   </div>
 </div>

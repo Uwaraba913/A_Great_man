@@ -1,10 +1,23 @@
-  <%# if @quote.evaluationed_by?(current_end_user) %>
-    <%= link_to quote_evaluations_path(quote.id, status: 'good'), method: :post, remote: true do %>
-      good<%= quote.evaluation_good.count %>
-    <% end %>
 
-  <%# else %>
-    <%= link_to quote_evaluations_path(quote.id, status: 'bad'), method: :post, remote: true do %>
-      bad<%= quote.evaluation_bad.count %>
+  <% if @quote.evaluationed_good_by?(current_end_user) %>
+    <%= link_to quote_evaluations_path(quote.id, status: 'good'), method: :post, remote: true do %>
+      <img src="/assets/good_color.png"  width="35" height="35">
+      <font color="#3399FF" size="5"><%= quote.evaluation_good.count %></font>
     <% end %>
-  <%# end %>
+  <% else %>
+    <%= link_to quote_evaluations_path(quote.id, status: 'good'), method: :post, remote: true do %>
+      <img src="/assets/good_nocolor.png" width="35" height="35">
+      <font color="#C0C0C0" size="5"><%= quote.evaluation_good.count %></font>
+    <% end %>
+  <% end %>
+  <% if @quote.evaluationed_bad_by?(current_end_user) %>
+    <%= link_to quote_evaluations_path(quote.id, status: 'bad'), method: :post, remote: true do %>
+      <img src="/assets/bad_color.png"  width="35" height="35">
+      <font color="#FF0000" size="5"><%= quote.evaluation_bad.count %></font>
+    <% end %>
+  <% else %>
+    <%= link_to quote_evaluations_path(quote.id, status: 'bad'), method: :post, remote: true do %>
+      <img src="/assets/bad_nocolor.png"  width="35" height="35">
+      <font color="#C0C0C0" size="5"><%= quote.evaluation_bad.count %></font>
+    <% end %>
+  <% end %>

@@ -21,6 +21,7 @@
 
 body {
   font-family: 'M PLUS 1p', sans-serif;
+  background-image: url(b005.gif);
 }
 
 header {
@@ -62,6 +63,7 @@ li{
     position: absolute;
     margin-left: -5px;
     margin-top: 5px;
+    z-index : 1;
     padding: 0;
     list-style-type: none;
     background: #FFDEAD;
@@ -78,9 +80,26 @@ li{
     color: #fff;
 }
 
+.acount {
+  max-width: 600px;
+  background-color: #DDDDDD;
+  padding: 10px;
+  border-radius: 10px;
+}
 
-.quote-index {
-  width :300px;
+.field {
+  margin: 20px auto;
+}
+
+.form-field {
+  padding: 5px;
+  border-radius: 8px;
+  width: 100%;
+  border: none;
+}
+
+.quote-show {
+
 }
 
 .person-index {
@@ -117,15 +136,52 @@ li{
   border-radius :20px;
 }
 
+.follow-btn {
+  background-color : #FFF;
+  border: 2px solid;
+  padding : 5px 13px;
+  color : #136FFF;
+  border-radius : 10px;
+}
+
+.follower-btn {
+  background-color : #FFF;
+  border: 2px solid;
+  padding : 5px 13px;
+  color : #66CC66;
+  border-radius : 10px;
+}
+
 .person-profile-quote {
   margin :20px 0;
 }
 
 .person-quote {
   margin : 10px 5px;
-  padding : 5px;
+  padding : 8px;
   width: 95%;
-  background: #fffafa;
+  z-index: -1;
+  background-image: url(quote.jpg);
+  background-size: 70%;
   border-left: double 8px #20b2aa;
   border-right: double 8px #20b2aa;
+}
+
+.person-content {
+  text-decoration : underline;
+  color : black;
+}
+
+.posi-randam {
+  background: radial-gradient(#FF9900, #FFFF99);
+  border-radius: 50%;
+  padding: 60px 15px;
+  color: #000;
+}
+
+.nega-randam {
+  background: radial-gradient(#6699FF, #6633FF);
+  border-radius: 50%;
+  padding: 60px 15px;
+  color: #000;
 }

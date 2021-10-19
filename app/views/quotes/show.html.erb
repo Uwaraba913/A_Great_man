@@ -1,20 +1,25 @@
 <div class="container">
-  <h1><%= @quote.content %></h1>
-  <div class="row mt-5">
-    <div class="col-la-4">
+  <h1 class="quote-show"><%= @quote.content %></h1>
+  <div class="row mt-5 d-flex align-items-center">
+    <div class="col-la-4 mr-3">
       <% if @quote.admin_id %>
         <%= attachment_image_tag @quote.person_profile, :image, fallback: "no_image_png", size: "150x150" %>
       <% else %>
         <%= attachment_image_tag @quote, :person_image, fallback: "no_image.png", size: "150x150" %>
       <% end %>
     </div>
-    <div class="col-la-8">
-      <h4><%= @quote.category.name %>　<%= l @quote.created_at %></h4>
+    <div class="col-la-8 text-center">
       <% if @quote.admin_id %>
         <h3><%= link_to @quote.person_profile.name, person_profile_path(@quote.person_profile.id) %></h3>
       <% else %>
         <h3><%= @quote.person_name %></h3>
       <% end %>
+      <% if @quote.category.name == "ポジティブ" %>
+        <span class="positive-icon"><%= @quote.category.name %></span>
+      <% else %>
+        <span class="negative-icon"><%= @quote.category.name %></span>
+      <% end %>
+      <span class="h4"><%= l @quote.created_at %></span><br>
 
       <span id="evaluation"><%= render 'evaluations/form', quote: @quote %></span>
 
@@ -26,17 +31,12 @@
     </div>
   </div>
   <div class="mt-5">
-    <% if @quote.admin_id %>
-      <%= link_to person_profile_path(@quote.person_profile.id) do %>
-        <%= attachment_image_tag @quote.person_profile, :image, fallback: "no_image.png", size: "50x50" %>
-        <%= @quote.person_profile.name %>
-      <% end %>
-    <% else %>
+    <% if @quote.end_user_id %>
       <%= link_to end_user_path(@quote.end_user_id) do %>
         <%= attachment_image_tag @quote.end_user, :image, fallback: "no_image.png", size: "50x50" %>
         <%= @quote.end_user.name %>
-        <span id="relationship"><%= render 'relationships/follow', end_user: @end_user %></span>
       <% end %>
+      <span id="relationship"><%= render 'relationships/follow', end_user: @end_user %></span>
     <% end %>
 
     <%= form_with(model:[@quote, @comment]) do |f| %>

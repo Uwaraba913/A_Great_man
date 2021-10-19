@@ -16,8 +16,12 @@ class Quote < ApplicationRecord
     presence: true,
     length: { maximum: 100 }
 
-  def evaluationed_by?(end_user)
-    evaluations.where(end_user_id: end_user.id).exists?
+  def evaluationed_good_by?(end_user)
+    evaluations.where(end_user_id: end_user.id).where(status: 'good').exists?
+  end
+
+  def evaluationed_bad_by?(end_user)
+    evaluations.where(end_user_id: end_user.id).where(status: 'bad').exists?
   end
 
   def evaluation_good

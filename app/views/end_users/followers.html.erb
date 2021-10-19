@@ -26,7 +26,7 @@
     <% @end_users.each do |end_user| %>
       <div class="d-flex flex-row align-items-center">
         <div>
-          <%= attachment_image_tag end_user, :image, fallback: "no_image.png", size: "90x90" %>
+          <%= attachment_image_tag end_user, :image, fallback: "no_image.png", size: "80x80" %>
         </div>
         <div>
           <span class="h4"><%= link_to end_user.name, end_user_path(end_user.id) %></span><br>
