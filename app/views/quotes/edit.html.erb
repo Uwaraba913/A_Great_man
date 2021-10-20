@@ -2,7 +2,7 @@
   <%= form_with model:@quote, local: true do |f| %>
   <div class="row">
     <div class="col-la-4">
-      <%= attachment_image_tag @quote, :person_image, fallback: "no_image.png", size: "150x150" %><br>
+      <%= attachment_image_tag @quote, :person_image, fallback: "no_image.png", size: "150x150", id: "preview" %><br>
       <%= f.attachment_field :person_image %>
     </div>
     <div class="col-la-8">

@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
 
   def destroy
     @quote = Quote.find(params[:quote_id])
-    Comment.find_by(quote_id: @quote.id).destroy
+    @comment = @quote.comments.find(params[:id]).destroy
   end
 
   private

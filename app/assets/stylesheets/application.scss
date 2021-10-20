@@ -25,92 +25,86 @@ body {
 }
 
 header {
-  margin-bottom :30px;
+  margin-bottom : 30px;
 }
 
 th {
-  padding :5px;
+  padding : 5px;
 }
 
 .menu{
-    max-width: 1200px;
-    display: flex;
+    max-width : 1200px;
+    display : flex;
 }
 
 ul{
-    text-align: center;
-    margin: 0 auto;
-    padding: 0;
+    text-align : center;
+    margin : 0 auto;
+    padding : 0;
 }
 li{
-    max-width: calc(1000px/5);
-    position: relative;
-    padding: 5px;
-    display: block;
-    cursor: pointer;
+    max-width : calc(1000px/5);
+    position : relative;
+    padding : 5px;
+    display : block;
+    cursor : pointer;
 }
 
 .menu>li{
-    width: 1200px;
-    margin: 1px;
-    background: #F4A460;
-    display: inline;
+    width : 1200px;
+    margin : 1px;
+    background : #F4A460;
+    display : inline;
 }
 
 .nav_menu{
     width: 100%;
-    display: none;
-    position: absolute;
-    margin-left: -5px;
-    margin-top: 5px;
+    display : none;
+    position : absolute;
+    margin-left : -5px;
+    margin-top : 5px;
     z-index : 1;
-    padding: 0;
-    list-style-type: none;
-    background: #FFDEAD;
+    padding : 0;
+    list-style-type : none;
+    background : #FFDEAD;
 }
 
 .nav_menu li{
-    width: 90%;
+    width : 90%;
 }
 
 .nav_menu li a{
-    padding: 5px 0;
-    margin: -5px 5px -5px -5px;
-    display: block;
-    color: #fff;
+    padding : 5px 0;
+    margin : -5px 5px -5px -5px;
+    display : block;
+    color : #fff;
 }
 
 .acount {
-  max-width: 600px;
-  background-color: #DDDDDD;
-  padding: 10px;
-  border-radius: 10px;
+  max-width : 600px;
+  background-color : #DDDDDD;
+  padding : 10px;
+  border-radius : 10px;
 }
 
 .field {
-  margin: 20px auto;
+  margin : 20px auto;
+  border : ridge;
+  border-radius : 10px;
 }
 
 .form-field {
-  padding: 5px;
-  border-radius: 8px;
-  width: 100%;
-  border: none;
-}
-
-.quote-show {
-
-}
-
-.person-index {
-  width :500px;
+  padding : 5px;
+  border-radius : 8px;
+  width : 100%;
+  border : none;
 }
 
 .positive-icon {
   background-color :#FF9900;
-  padding :4px;
+  padding : 4px;
   color :#FFF;
-  border-radius :15px;
+  border-radius : 15px;
 }
 
 .negative-icon {
@@ -152,24 +146,65 @@ li{
   border-radius : 10px;
 }
 
+.comment-area {
+  background-color : #FFF;
+  max-width : 650px;
+  padding : 20px;
+  border-radius : 10px;
+}
+
+.comment {
+  padding-top : 10px;
+  margin : 5px;
+  border-top : 2px solid;
+  border-color : #CCCCCC;
+}
+
+.comment-form {
+  padding : 5px;
+  width : 70%;
+  border : groove;
+  border-radius : 5px;
+}
+
 .person-profile-quote {
   margin :20px 0;
+}
+
+.quote-input-area {
+  background-color : #FFF;
+  max-width : 750px;
+  padding : 20px 30px;
+  border-radius : 10px;
+}
+
+.quote-input-form {
+  width : 100%;
+  border : ridge;
 }
 
 .person-quote {
   margin : 10px 5px;
   padding : 8px;
-  width: 95%;
-  z-index: -1;
-  background-image: url(quote.jpg);
-  background-size: 70%;
-  border-left: double 8px #20b2aa;
-  border-right: double 8px #20b2aa;
+  width : 95%;
+  border : ridge 4px #FFCC00;
+  background-image : url(quote_back.jpg);
+  background-size : cover;
+}
+
+.quote-show {
+  max-width : 650px;
+  border : ridge 8px #FFCC00;
+  background-image : url(quote_back.jpg);
+  background-size : cover;
+  color : #FFF;
+  padding : 40px 35px 30px 40px;
 }
 
 .person-content {
+  margin-top : 5px;
   text-decoration : underline;
-  color : black;
+  color : #FFF;
 }
 
 .posi-randam {

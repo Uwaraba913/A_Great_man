@@ -1,14 +1,14 @@
 <div class="container">
-  <div class="row row-cols-lg-3 row-cols-md-2">
+  <div class="row row-cols-xl-3 row-cols-la-2 row-cols-md-2 row-cols-1">
       <% @quotes.each do |quote| %>
       <div class="col">
         <div class="person-quote fly shadow">
             <%= link_to quote_path(quote.id) do %>
               <div class="person-profile d-flex flex-row">
                 <div>
-                  <%= attachment_image_tag quote, :person_image, fallback: "no_image.png", size: "60x60" %>
+                  <%= attachment_image_tag quote, :person_image, fallback: "no_image.png", size: "90x90" %>
                 </div>
-                <div>
+                <div class="mx-3">
                   <%= quote.person_name %><br>
                   <% if quote.category.name == "ポジティブ" %>
                     <span class="positive-icon"><%= quote.category.name %></span>

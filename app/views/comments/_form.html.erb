@@ -1,10 +1,16 @@
 <% quote.comments.each do |comment| %>
-  <div id="comment-<% comment.id %>">
-    <%= attachment_image_tag comment.end_user, :image, fallback: "no_image.png", size: "50x50" %>
-    <%= comment.end_user.name %>
-    <%= comment.comment %>
-    <% if current_end_user.id == comment.end_user_id %>
-      <%= link_to "削除", quote_comment_path(comment.quote_id, comment.id), method: :delete, remote: true %>
-    <% end %>
+  <div id="comment-<%= comment.id %>">
+    <div class="comment d-flex flex-row">
+      <div class="mr-1">
+        <%= attachment_image_tag comment.end_user, :image, fallback: "no_image.png", size: "50x50" %>
+      </div>
+      <div>
+        <%= comment.end_user.name %><br>
+        <%= comment.comment %>
+        <% if current_end_user.id == comment.end_user_id %>
+        <%= link_to "削除する", quote_comment_path(comment.quote_id, comment.id), method: :delete, remote: true %></span>
+        <% end %>
+      </div>
+    </div>
   </div>
 <% end %>
