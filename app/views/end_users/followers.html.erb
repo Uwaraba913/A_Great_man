@@ -1,31 +1,37 @@
 <div class="container">
-  <div class="row">
-    <div class="col-la-4">
-      <%= attachment_image_tag @end_user, :image, fallback: "no_image.png", size: "150x150" %>
-    </div>
-    <div class="col-la-8 ml-4">
-      <div class="user_profile">
+  <div class="row mx-auto">
+    <div class="d-flex align-items-center justify-content-center">
+      <div class="mr-4"><%= attachment_image_tag @end_user, :image, fallback: "no_image.png", size: "150x150" %></div>
+      <div>
         <h3><%= @end_user.name %></h3>
         <p><%= @end_user.introduction %></p>
-        <%= link_to follow_list_path(@end_user), class: "btn btn-outline-primary" do %>
-          <%= @end_user.followings.count%> フォロー
-        <% end %>
-        <%= link_to follower_list_path(@end_user), class: "btn btn-outline-info" do %>
-          <%= @end_user.followers.count %> フォロワー
-        <% end %>
         <% if current_end_user == @end_user %>
-          <%= link_to "プロフィール編集", edit_end_user_path(@end_user.id), class: "btn btn-light" %>
-        <% else %>
-          <%= render 'relationships/follow', end_user: @end_user %>
+          <%= link_to " プロフィールを編集", edit_end_user_path(@end_user.id), class: "fas fa-edit btn btn-success" %>
         <% end %>
+        <span id="relationship"><%= render 'relationships/follow', end_user: @end_user %></span>
       </div>
     </div>
   </div>
-  <h4 class="mt-4 mb-3">フォロワー</h4>
-  <div class="row row-cols-md-2">
-    <% @end_users.each do |end_user| %>
-      <div class="d-flex flex-row align-items-center">
-        <div>
+  <div class="mypage-container mt-4">
+    <ul class="mypage-bar">
+      <li class="mypage-menu">
+        <%= link_to end_user_path(@end_user.id) do %>
+          <i class="fas fa-journal-whills"></i> 名(迷)言</li>
+        <% end %>
+      <li class="mypage-menu">
+        <%= link_to follow_list_path(@end_user) do %>
+          <i class="fas fa-user-alt"></i><%= @end_user.followings.count %> フォロー</font>
+        <% end %>
+      </li>
+      <li class="chosen">
+        <i class="fas fa-user-friends"></i><%= @end_user.followers.count %> フォロワー</font>
+      </li>
+    </ul>
+
+    <div class="d-flex flex-row flex-wrap">
+     <% @end_users.each do |end_user| %>
+      <div class="follow-list d-flex align-items-center">
+        <div class="mr-4">
           <%= attachment_image_tag end_user, :image, fallback: "no_image.png", size: "80x80" %>
         </div>
         <div>
@@ -34,5 +40,6 @@
         </div>
       </div>
     <% end %>
+    </div>
   </div>
 </div>

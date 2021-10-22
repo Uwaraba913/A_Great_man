@@ -1,48 +1,54 @@
 <div class="container">
-  <div class="row">
-    <div class="col-la-4">
-      <%= attachment_image_tag @end_user, :image, :fill, 150, 150, fallback: "no_image.png", size: "150x150" %>
-    </div>
-    <div class="col-la-8 ml-4">
-      <div class="user_profile">
+  <div class="row mx-auto">
+    <div class="d-flex align-items-center justify-content-center">
+      <div class="mr-4"><%= attachment_image_tag @end_user, :image, fallback: "no_image.png", size: "150x150" %></div>
+      <div>
         <h3><%= @end_user.name %></h3>
         <p><%= @end_user.introduction %></p>
-        <%= link_to follow_list_path(@end_user), class: "follow-btn" do %>
-          <%= @end_user.followings.count %> フォロー
-        <% end %>
-        <%= link_to follower_list_path(@end_user), class: "follower-btn" do %>
-          <%= @end_user.followers.count %> フォロワー
-        <% end %>
         <% if current_end_user == @end_user %>
-          <%= link_to "プロフィール編集", edit_end_user_path(@end_user.id), class: "btn btn-secondary" %>
+          <%= link_to " プロフィールを編集", edit_end_user_path(@end_user.id), class: "fas fa-edit btn btn-success" %>
         <% end %>
         <span id="relationship"><%= render 'relationships/follow', end_user: @end_user %></span>
       </div>
     </div>
   </div>
+  <div class="mypage-container mt-4">
+    <ul class="mypage-bar">
+      <li class="chosen"><i class="fas fa-journal-whills"></i> 名(迷)言</li>
+      <li class="mypage-menu">
+        <%= link_to follow_list_path(@end_user) do %>
+          <i class="fas fa-user-alt"></i><%= @end_user.followings.count %> フォロー</font>
+        <% end %>
+      </li>
+      <li class="mypage-menu">
+        <%= link_to follower_list_path(@end_user) do %>
+          <i class="fas fa-user-friends"></i><%= @end_user.followers.count %> フォロワー</font>
+        <% end %>
+      </li>
+    </ul>
 
-  <h4 class="mt-4 mb-3">投稿した名言一覧</h4>
-  <div class="row row-cols-lg-3 row-cols-md-2">
-    <% @quotes.each do |quote|%>
-    <div class="person-quote shadow">
-      <div class="mb-2 d-flex flex-row">
-        <div class="mr-2">
-          <%= attachment_image_tag quote, :person_image, fallback: "no_image.png", size: "50x50" %>
+    <div class="d-flex flex-row flex-wrap">
+      <% @quotes.each do |quote|%>
+      <div class="person-quote-mypage shadow mx-auto">
+        <div class="mb-2 d-flex flex-row">
+          <div class="mr-2">
+            <%= attachment_image_tag quote, :person_image, fallback: "no_image.png", size: "50x50" %>
+          </div>
+          <div>
+            <font color="white"><%= quote.person_name %></font><br>
+            <% if quote.category.name == "ポジティブ" %>
+              <span class="positive-icon"><%= quote.category.name %></span>
+            <% else %>
+              <span class="negative-icon"><%= quote.category.name %></span>
+            <% end %>
+            <font color="white"><%= l quote.created_at %></font>
+          </div>
         </div>
-        <div>
-          <%= quote.person_name %><br>
-          <% if quote.category.name == "ポジティブ" %>
-            <span class="positive-icon"><%= quote.category.name %></span>
-          <% else %>
-            <span class="negative-icon"><%= quote.category.name %></span>
-          <% end %>
-          <%= l quote.created_at %>
-        </div>
+        <%= link_to quote_path(quote.id) do %>
+          <div class="person-content mt-1"><%= quote.content %></div>
+        <% end %>
       </div>
-      <%= link_to quote_path(quote.id) do %>
-        <div class="person-content mt-1"><%= quote.content %></div>
       <% end %>
     </div>
-    <% end %>
   </div>
 </div>

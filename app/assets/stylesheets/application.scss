@@ -35,26 +35,18 @@ th {
 .menu{
     max-width : 1200px;
     display : flex;
-}
-
-ul{
     text-align : center;
-    margin : 0 auto;
-    padding : 0;
-}
-li{
-    max-width : calc(1000px/5);
-    position : relative;
-    padding : 5px;
-    display : block;
-    cursor : pointer;
 }
 
 .menu>li{
+    max-width : calc(1000px/5);
+    padding : 5px;
     width : 1200px;
     margin : 1px;
     background : #F4A460;
     display : inline;
+    cursor : pointer;
+    position : relative;
 }
 
 .nav_menu{
@@ -130,20 +122,11 @@ li{
   border-radius :20px;
 }
 
-.follow-btn {
-  background-color : #FFF;
-  border: 2px solid;
-  padding : 5px 13px;
-  color : #136FFF;
-  border-radius : 10px;
-}
-
-.follower-btn {
-  background-color : #FFF;
-  border: 2px solid;
-  padding : 5px 13px;
-  color : #66CC66;
-  border-radius : 10px;
+.follow-list{
+  width : 100%;
+  border-bottom : solid #DDDDDD 3px;
+  padding : 7px;
+  margin-left : 8px;
 }
 
 .comment-area {
@@ -168,25 +151,46 @@ li{
 }
 
 .person-profile-quote {
-  margin :20px 0;
+  margin : 20px 0;
 }
 
 .quote-input-area {
-  background-color : #FFF;
+  background-color : #DDDDDD;
   max-width : 750px;
+  margin-top : -5px;
   padding : 20px 30px;
   border-radius : 10px;
 }
 
 .quote-input-form {
+  background-color : #FFF;
   width : 100%;
-  border : ridge;
+  margin : 10px 0;
+  padding : 5px;
+  border : groove;
+  border-radius : 5px;
+}
+
+.quote-form {
+  border : none;
+  border-top : solid #DDDDDD 3px;
+  padding : 8px 5px;
+  width : 100%;
 }
 
 .person-quote {
   margin : 10px 5px;
   padding : 8px;
   width : 95%;
+  border : ridge 4px #FFCC00;
+  background-image : url(quote_back.jpg);
+  background-size : cover;
+}
+
+.person-quote-mypage {
+  margin : 10px 5px;
+  padding : 8px;
+  width : 340px;
   border : ridge 4px #FFCC00;
   background-image : url(quote_back.jpg);
   background-size : cover;
@@ -219,4 +223,40 @@ li{
   border-radius: 50%;
   padding: 60px 15px;
   color: #000;
+}
+
+.mypage-container {
+  background-color : #F8F8FF;
+  padding-top : 10px;
+  max-width : 730px;
+  border : outset #AAAAAA;
+  border-radius : 8px;
+}
+
+.mypage-bar {
+  padding-left : 3px;
+}
+
+.mypage-bar>li {
+  list-style-type : none;
+  display : inline;
+}
+
+.mypage-menu {
+  background-color : #FFF;
+
+  padding : 5px;
+  border : inset #DDDDDD;
+  border-radius : 6px 6px 0 0;
+  font-size : 20px;
+}
+
+.chosen {
+  margin-right : 2px;
+  padding : 5px;
+  font-size : 20px;
+}
+
+.person-index{
+
 }
