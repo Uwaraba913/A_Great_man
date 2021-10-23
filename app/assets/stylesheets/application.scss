@@ -152,6 +152,8 @@ th {
 
 .person-profile-quote {
   margin : 20px 0;
+  padding : 5px;
+  border-top : solid 3px #CCCCCC;
 }
 
 .quote-input-area {
@@ -258,5 +260,10 @@ th {
 }
 
 .person-index{
-
+  margin : 10px 5px;
+  padding : 8px;
+  width : 90%;
+  border : ridge 4px #DDDDDD;
+  background-image : url(quote.jpg);
+  background-size : cover;
 }

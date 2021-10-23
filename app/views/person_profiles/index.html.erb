@@ -1,16 +1,19 @@
 <div class="container">
-  <div class="row">
-    <div class="col d-flex justify-content-center">
-      <% @persons.each do |person| %>
-        <div class="person-index bg-light color-white fly shadow mx-auto">
+  <div class="row row-cols-md-2 row-cols-1">
+    <% @persons.each do |person| %>
+      <div class="col">
+        <div class="person-index bg-light fly shadow mx-auto">
+          <%= link_to person_profile_path(person.id) do %>
           <div class="d-flex flex-row align-items-center">
-            <%= link_to person_profile_path(person.id) do %>
-              <%= attachment_image_tag person, :image, fallback: "no_image.png", size: "80x80" %>
-              <span class="h4"><%= person.name %></span>
-            <% end %>
-          </div>
+              <div class="mr-2"><%= attachment_image_tag person, :image, fallback: "no_image.png", size: "80x80" %></div>
+              <div>
+                <span class="h3"><%= person.name %></span><br>
+                名(迷)言数　<%= person.quotes.count %>
+              </div>
+            </div>
+          <% end %>
         </div>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
   </div>
 </div>

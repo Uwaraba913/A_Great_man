@@ -4,7 +4,7 @@
       <div class="col-la-4">
         <%= form_with model:@person, url: admins_person_profile_path(@person.id), local: true do |f| %>
           <div class="mb-3"><%= f.attachment_field :image %></div>
-          <%= attachment_image_tag @person, :image, :fill, 150, 150, fallback: "no_image.png", size:'150x150' %>
+          <%= attachment_image_tag @person, :image, :fill, 150, 150, fallback: "no_image.png", size:'150x150', id: "preview" %>
           <%= f.text_field :name %>
           <%= f.submit "更新", class: "btn btn-success" %>
         <% end %>

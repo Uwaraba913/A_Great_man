@@ -2,6 +2,9 @@
   <%= form_with model:@quote, local: true do |f| %>
     <div class="quote-input-area">
       <h3 class="text-center">~ 名(迷)言投稿 ~</h3>
+      <p class="border border-secondary px-2">画像はjpegを推奨します。<br>
+        pngファイルですと背景と同化してしまい画像が見えなくなってしまう可能性があります。<br>
+      </p>
       <div class="text-center bg-white pt-2 pb-2">
         <%= attachment_image_tag @quote, :person_image, fallback: "no_image.png", size: "150x150", id: "preview" %><br>
         <%= f.attachment_field :person_image %>

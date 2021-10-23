@@ -4,7 +4,7 @@
   <div>
     <%= f.label :image, "プロフィール画像" %>
     <%= f.attachment_field :image %>
-    <%= attachment_image_tag @end_user, :image, fallback: "no_image.png", size: "100x100" %>
+    <%= attachment_image_tag @end_user, :image, fallback: "no_image.png", size: "100x100", id: "preview" %>
   </div>
   <table>
     <tr>

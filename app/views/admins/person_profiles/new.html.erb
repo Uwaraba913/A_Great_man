@@ -1,11 +1,9 @@
 <div class="container">
   <h1>偉人プロフィール投稿</h1>
   <%= form_with model:@person, url: admins_person_profiles_path, local: true do |f| %>
-    <%= f.attachment_field :image %>
+    <%= f.attachment_field :image %><br>
+    <%= attachment_image_tag @person, :image, fallback: "no_image.png", size: "150x150", id: "preview" %>
     <%= f.text_field :name %>
     <%= f.submit "新規登録"%>
   <% end %>
 </div>
-<script>
-  
-</script>
