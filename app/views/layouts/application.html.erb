@@ -12,10 +12,13 @@
 
   <body>
     <%= render 'layouts/header' %>
-    <%= yield %>
-    <footer>
+    <div id="page">
+      <%= yield %>
+    </div>
+    <footer class="d-flex align-items-center justify-content-center">
+      <span class="mr-4">@2021 historical_person</span>
       <% if end_user_signed_in? %>
-        <%= link_to "お問い合わせ", new_contact_path %>
+         <%= link_to " お問い合わせ", new_contact_path, class: "fas fa-envelope-open-text contact-btn" %>
       <% end %>
     </footer>
   </body>

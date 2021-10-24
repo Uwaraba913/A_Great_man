@@ -1,15 +1,20 @@
 <div class="container">
-  <div class="row">
     <%= form_with model: @contact, local: true do |f| %>
-    <div class="contact-title">
-      <%= f.label :title, "タイトル" %>
-      <%= f.text_field :title %>
-    </div>
-    <div class="contact-content">
-      <%= f.label :content, "お問い合わせ内容" %>
-      <%= f.text_area :content %>
-      <%= f.submit "送信", data: { confirm: "この内容でよろしいですか？"} %>
-    </div>
+      <table class="contact w-100">
+        <tr>
+          <th class="bg-secondary border border-dark text-center" width="20%" height="60px">
+            <font color="#FFF"><%= f.label :title, "タイトル" %></font>
+          </th>
+          <th class="bg-white border border-dark"><%= f.text_field :title, class: "form-control" %></th>
+        </tr>
+        <tr>
+          <th class="bg-secondary border border-dark text-center">
+            <font color="#FFF"><%= f.label :content, "お問い合わせ内容" %><font color="#FFF">
+          </th>
+          <th class="bg-white border border-dark"><%= f.text_area :content, class: "form-control" %></th>
+        </tr>
+      </table>
+      <div class="text-center mt-4"><%= f.submit "送 信", class: "btn btn-success",style: "width: 25%;", data: { confirm: "この内容でよろしいですか？"} %></div>
     <% end %>
-  </div>
+
 </div>

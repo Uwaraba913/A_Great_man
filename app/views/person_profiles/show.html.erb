@@ -1,12 +1,9 @@
 <div class="container">
-  <div class="row person-index">
-    <div class="col-4 text-center ">
-      <%= attachment_image_tag @person, :image, fallback: "no_image.png", size: "150x150" %>
+  <div class="row">
+    <div class="d-flex flex-row align-items-center person-show">
+      <div><%= attachment_image_tag @person, :image, fallback: "no_image.png", size: "150x150" %></div>
+      <h1 class="mx-auto"><%= @person.name %></h1>
     </div>
-    <div class="col-8">
-      <h3><%= @person.name %></h3>
-    </div>
-  </div>
     <div class="mypage-container mt-4">
       <ul class="mypage-bar">
         <li class="chosen">

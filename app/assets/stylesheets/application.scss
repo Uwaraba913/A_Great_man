@@ -21,11 +21,34 @@
 
 body {
   font-family: 'M PLUS 1p', sans-serif;
-  background-image: url(b005.gif);
+  background-color : #FFFFEE;
+}
+
+footer {
+  height : 90px;
+  background-color : #FFDBC9;
+  margin-top : 30px;
+}
+
+.contact-btn {
+  background-color : #FF8C00;
+  padding : 10px;
+  color : #FFF;
+  border-radius : 20px;
+  border : outset #FF8C00;
+}
+
+#page {
+  margin : 0 auto;
+  max-width : 900px;
 }
 
 header {
+  margin : 0 auto;
+  text-align: center;
+  padding : 5px;
   margin-bottom : 30px;
+  background-color : #FFDBC9;
 }
 
 th {
@@ -33,43 +56,46 @@ th {
 }
 
 .menu{
-    max-width : 1200px;
-    display : flex;
-    text-align : center;
+  margin-top : 5px;
+  max-width : 1200px;
+  display : flex;
+  text-align : center;
+  padding : 0px;
+  border : outset 4px #FFA500;
 }
 
 .menu>li{
-    max-width : calc(1000px/5);
-    padding : 5px;
-    width : 1200px;
-    margin : 1px;
-    background : #F4A460;
-    display : inline;
-    cursor : pointer;
-    position : relative;
+  max-width : calc(1000px/5);
+  padding : 5px;
+  width : 1200px;
+  margin : 1px;
+  background : #F4A460;
+  display : inline;
+  cursor : pointer;
+  position : relative;
 }
 
 .nav_menu{
-    width: 100%;
-    display : none;
-    position : absolute;
-    margin-left : -5px;
-    margin-top : 5px;
-    z-index : 1;
-    padding : 0;
-    list-style-type : none;
-    background : #FFDEAD;
+  width: 100%;
+  display : none;
+  position : absolute;
+  margin-left : -5px;
+  margin-top : 5px;
+  z-index : 1;
+  padding : 0;
+  list-style-type : none;
+  background : #FFDEAD;
+  border : outset 4px #FFAD90;
 }
 
 .nav_menu li{
-    width : 90%;
+  width : 90%;
 }
 
 .nav_menu li a{
-    padding : 5px 0;
-    margin : -5px 5px -5px -5px;
-    display : block;
-    color : #fff;
+  padding : 5px 0;
+  display : block;
+  color : #444444;
 }
 
 .acount {
@@ -218,6 +244,7 @@ th {
   border-radius: 50%;
   padding: 60px 15px;
   color: #000;
+  border : double thick;
 }
 
 .nega-randam {
@@ -225,6 +252,7 @@ th {
   border-radius: 50%;
   padding: 60px 15px;
   color: #000;
+  border : double thick;
 }
 
 .mypage-container {
@@ -246,7 +274,6 @@ th {
 
 .mypage-menu {
   background-color : #FFF;
-
   padding : 5px;
   border : inset #DDDDDD;
   border-radius : 6px 6px 0 0;
@@ -263,6 +290,16 @@ th {
   margin : 10px 5px;
   padding : 8px;
   width : 90%;
+  border : ridge 4px #DDDDDD;
+  background-image : url(quote.jpg);
+  background-size : cover;
+}
+
+.person-show {
+  margin : 10px 5px;
+  padding : 8px;
+  width : 90%;
+  max-width : 730px;
   border : ridge 4px #DDDDDD;
   background-image : url(quote.jpg);
   background-size : cover;
