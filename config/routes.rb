@@ -13,7 +13,6 @@ Rails.application.routes.draw do
 
   root to: 'homes#top'
   get 'homes/about' => 'homes#about'
-  get 'homes/description' => 'homes#description'
   get 'homes/random' => 'homes#random'
 
   #ユーザー側のルーティング
