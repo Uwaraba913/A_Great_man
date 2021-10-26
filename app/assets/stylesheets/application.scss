@@ -330,3 +330,12 @@ th {
   background-image : url(quote.jpg);
   background-size : cover;
 }
+
+.pagination {
+  margin-top : 15px;
+}
+
+.pagination>span {
+  padding : 0 4px 0 4px;
+  font-size : 22px;
+}

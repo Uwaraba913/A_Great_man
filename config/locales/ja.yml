@@ -1,4 +1,24 @@
 ja:
+  activerecord:
+    models:
+      quote: 名(迷)言
+      comment: コメント
+    attributes:
+      end_user:
+        name: 名前
+      quote:
+        category_id: カテゴリー
+        person_name: 発言者名
+        content: 名(迷)言
+      comment:
+        comment: コメント
   time:
     formats:
       default: "%Y/%m/%d"
+  views:
+    pagination:
+      first: <i class="fas fa-angle-double-left"></i>
+      last: <i class="fas fa-angle-double-right"></i>
+      previous: <i class="fas fa-angle-left"></i>
+      next: <i class="fas fa-angle-right"></i>
+      truncate: "..."

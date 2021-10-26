@@ -2,7 +2,7 @@ class EndUsersController < ApplicationController
   before_action :authenticate_end_user!
   def show
     @end_user = EndUser.find(params[:id])
-    @quotes = @end_user.quotes
+    @quotes = @end_user.quotes.all.page(params[:page]).per(12)
   end
 
   def edit
@@ -29,12 +29,12 @@ class EndUsersController < ApplicationController
 
   def following
     @end_user = EndUser.find(params[:id])
-    @end_users = @end_user.followings
+    @end_users = @end_user.followings.all.page(params[:page]).per(10)
   end
 
   def followers
     @end_user = EndUser.find_by(id: params[:id])
-    @end_users = @end_user.followers
+    @end_users = @end_user.followers.all.page(params[:page]).per(10)
   end
 
   private

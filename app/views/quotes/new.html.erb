@@ -1,4 +1,12 @@
 <div class="container">
+  <% if flash[:danger] != nil %>
+    <ul>
+      <% flash[:danger].each do |message| %>
+        <font color="red"><li><%= message %></li></font>
+      <% end %>
+    </ul>
+  <% end %>
+
   <%= form_with model:@quote, local: true do |f| %>
     <div class="quote-input-area">
       <h3 class="text-center">~ 名(迷)言投稿 ~</h3>

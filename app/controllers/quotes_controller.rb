@@ -7,33 +7,40 @@ class QuotesController < ApplicationController
 
   def create
     quote = Quote.new(quote_params)
-    quote.save
-    redirect_to quote_path(quote.id)
+    if quote.save
+      redirect_to quote_path(quote.id)
+    else
+      flash[:danger] = quote.errors.full_messages
+      redirect_to new_quote_path
+    end
   end
 
   def index
     if params[:quote_selection] == '偉人名(迷)言'
       if params[:word]
-        @quotes = Quote.where.not(admin_id: nil).where('content LIKE?', "%#{params[:word]}%")
+        @quotes = Quote.where.not(admin_id: nil).where('content LIKE?', "%#{params[:word]}%").all.page(params[:page]).per(12)
         if params[:evaluation_ranking] == 'good'
-          @quotes.order(:evaluation_good.count desc)
+          @quotes = Quote.left_joins(:good_evaluations).where.not(admin_id: nil).order("cnt_good desc").group(:id).select("quotes.*, count(evaluations.quote_id) cnt_good").all.page(params[:page]).per(12)
         end
       end
     elsif params[:quote_selection] == 'ユーザー名(迷)言'
       if params[:word]
-        @quotes = Quote.where.not(end_user_id: nil).where('content LIKE?', "%#{params[:word]}%")
+        @quotes = Quote.where.not(end_user_id: nil).where('content LIKE?', "%#{params[:word]}%").all.page(params[:page]).per(12)
       end
       render '/quotes/user_posts'
     else
-      @quotes = Quote.where.not(admin_id: nil)
+      @quotes = Quote.where.not(admin_id: nil).all.page(params[:page]).per(12)
       if params[:evaluation_ranking] == 'good'
-        @quotes = Quote.left_joins(:good_evaluations).where.not(admin_id: nil).order("cnt_good desc").group(:id).select("quotes.*, count(evaluations.quote_id) cnt_good")
+        @quotes = Quote.left_joins(:good_evaluations).where.not(admin_id: nil).order("cnt_good desc").group(:id).select("quotes.*, count(evaluations.quote_id) cnt_good").all.page(params[:page]).per(12)
       end
     end
   end
 
   def user_posts
-    @quotes = Quote.where.not(end_user_id: nil)
+    @quotes = Quote.where.not(end_user_id: nil).all.page(params[:page]).per(12)
+    if params[:evaluation_ranking] == 'good'
+      @quotes = Quote.left_joins(:good_evaluations).where.not(end_user_id: nil).order("cnt_good desc").group(:id).select("quotes.*, count(evaluations.quote_id) cnt_good").all.page(params[:page]).per(12)
+    end
   end
 
   def show
@@ -49,8 +56,12 @@ class QuotesController < ApplicationController
 
   def update
     quote = Quote.find(params[:id])
-    quote.update(quote_params)
-    redirect_to quote_path(quote.id)
+    if quote.update(quote_params)
+      redirect_to quote_path(quote.id)
+    else
+      flash[:errors] = quote.errors.full_messages
+      redirect_to edit_quote_path(quote.id)
+    end
   end
 
   def destroy
