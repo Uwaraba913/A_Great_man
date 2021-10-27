@@ -9,9 +9,10 @@ class ContactsController < ApplicationController
     @contact.end_user_id = current_end_user.id
     if @contact.save
       ContactMailer.send_mail(@contact).deliver_now
-      redirect_to contacts_thanks_path
+      flash[:notice] = "お問い合わせありがとうございます。"
+      redirect_to root_path
     else
-      render :new
+      redirect_to new_contact_path
     end
   end
 

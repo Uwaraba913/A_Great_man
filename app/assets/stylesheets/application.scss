@@ -21,14 +21,32 @@
 
 body {
   font-family: 'M PLUS 1p', sans-serif;
-  background-color : #FFFFEE;
+  background-color : #FFFFBB;
+}
+
+header {
+  width : 100%;
+  margin : 0 auto;
+  text-align: center;
+  padding : 5px;
+  background-color : #FFDBC9;
+  border-bottom : outset 6px #FFDBC9;
 }
 
 footer {
   width : 100%;
   height : 90px;
   background-color : #FFDBC9;
-  margin-top : 30px;
+  border-top : inset  6px #FFDBC9;
+}
+
+#page {
+  margin : 0 auto;
+  padding : 30px;
+  max-width : 900px;
+  background-color : #FFFFEE;
+  border-left : solid 20px #FFFF88;
+  border-right : solid 20px #FFFF88;
 }
 
 .contact-btn {
@@ -40,10 +58,10 @@ footer {
 }
 
 #cursor{
-  position: fixed;
-  z-index: -1;
-  pointer-events: none;
-  opacity: 0;
+  position : fixed;
+  pointer-events : none;
+  opacity : 0;
+  z-index : 0;
 }
 
 #picto{
@@ -54,6 +72,8 @@ footer {
 
 .Q {
   font-size : 30px;
+  position : relative;
+  z-index : 0;
 }
 
 .A {
@@ -61,20 +81,6 @@ footer {
   font-size : 14px;
   width : 310px;
   color : #FFFFEE;
-}
-
-#page {
-  margin : 0 auto;
-  max-width : 900px;
-}
-
-header {
-  width : 100%;
-  margin : 0 auto;
-  text-align: center;
-  padding : 5px;
-  margin-bottom : 30px;
-  background-color : #FFDBC9;
 }
 
 th {
@@ -338,4 +344,9 @@ th {
 .pagination>span {
   padding : 0 4px 0 4px;
   font-size : 22px;
+}
+
+.widthdrwal>li {
+  list-style: none;
+  font-size : 20px;
 }

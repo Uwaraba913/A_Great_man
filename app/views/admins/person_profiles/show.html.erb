@@ -7,8 +7,30 @@
         <%= link_to "編集", edit_admins_person_profile_path(@person.id), class: "btn btn-success" %>
         <%= link_to "削除", admins_person_profile_path(@person.id), method: :delete, class: "btn btn-danger" %>
       </div>
-      <div class="col-la-7">
-
-      </div>
     </div>
+
+  <table class="table mt-4 bg-white">
+    <tr>
+      <th>投稿日</th>
+      <th>カテゴリ</th>
+      <th>名(迷)言</th>
+      <th>評価</th>
+    </tr>
+    <% @quotes.each do |quote| %>
+    <tr>
+      <th><%= l quote.created_at %></th>
+      <% if quote.category.name == "ポジティブ" %>
+        <th><div class="positive-icon"><%= quote.category.name %></div></th>
+      <% else %>
+        <th><div class="negative-icon"><%= quote.category.name %></div></th>
+      <% end %>
+      <th><%= quote.content %></th>
+      <th>
+        G<%= quote.evaluation_good.count %><br>
+        B<%= quote.evaluation_bad.count %>
+      </th>
+    </tr>
+    <% end %>
+  </table>
+  <div class="d-flex align-items-center justify-content-center"><%= paginate @quotes %></div>
 </div>

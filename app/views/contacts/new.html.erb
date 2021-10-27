@@ -1,5 +1,5 @@
 <div class="container">
-    <%= form_with model: @contact, local: true do |f| %>
+  <%= form_with model: @contact, local: true do |f| %>
       <table class="contact w-100">
         <tr>
           <th class="bg-secondary border border-dark text-center" width="20%" height="60px">
@@ -15,6 +15,6 @@
         </tr>
       </table>
       <div class="text-center mt-4"><%= f.submit "送 信", class: "btn btn-success",style: "width: 25%;", data: { confirm: "この内容でよろしいですか？"} %></div>
-    <% end %>
+  <% end %>
 
 </div>

@@ -1,0 +1,5 @@
+<% if comment.errors.any? %>
+  <% comment.errors.full_messages.each do |message| %>
+    <font color="red"><%= message %></font>
+  <% end %>
+<% end %>

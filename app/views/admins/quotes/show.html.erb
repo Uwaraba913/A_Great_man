@@ -22,5 +22,17 @@
       <%= link_to "削除", admins_quote_path(@quote.id), method: :delete, class: "btn btn-danger" %><br>
     </div>
     <div class="h4 mt-3"><%= @quote.content %></div>
-
+  <table class="table bg-white">
+    <tr>
+      <th>投稿日</th>
+      <th>コメント</th>
+    </tr>
+    <% @comments.each do |comment| %>
+    <tr>
+      <th><%= l comment.created_at %></th>
+      <th><%= comment.comment %><%= link_to "削除する", admins_quote_comment_path(comment.quote_id, comment.id), method: :delete %></th>
+    </tr>
+    <% end %>
+  </table>
+  <div class="d-flex align-items-center justify-content-center"><%= paginate @comments %></div>
 </div>

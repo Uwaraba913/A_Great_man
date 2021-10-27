@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class EndUsers::SessionsController < Devise::SessionsController
-  before_action :end_user_exist?, only: [:create]
   before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in
@@ -21,17 +20,11 @@ class EndUsers::SessionsController < Devise::SessionsController
 
   protected
 
-  def end_user_exist?
-    if current_end_user.nil?
-      flash[:error] = "そのアカウントは登録されていません。"
-      redirect_to request.referer
-    end
-  end
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_in_params
-    if current_end_user.is_withdrawal != true
+    if !!current_end_user && current_end_user&.is_withdrawal != true #ユーザーが存在する場合（true）かつユーザーの退会フラグがfalseの時
       reset_session
-      flash[:notice] = "このアカウントは退会済みです。"
+      flash[:alert] = "このアカウントは退会済みです。"
       redirect_to request.referer
     end
   end

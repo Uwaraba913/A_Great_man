@@ -3,7 +3,7 @@
     <h2>アカウントを作成</h2>
     <div>ユーザーネーム(20文字以内)、推測されにくいパスワード(<%= @minimum_password_length %> 文字以上、半角英数字)を入力してください。</div>
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <%= render "end_users/shared/error_messages", resource: resource %>
+      <font color="red"><%= render "end_users/shared/error_messages", resource: resource %></font>
 
       <div class="field">
         <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "ユーザーネーム", class: "form-field"  %>

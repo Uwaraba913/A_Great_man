@@ -13,15 +13,16 @@ class Admins::QuotesController < ApplicationController
   end
 
   def index
-    @quotes = Quote.where.not(admin_id: nil)
+    @quotes = Quote.where.not(admin_id: nil).order(created_at: "DESC").all.page(params[:page]).per(12)
   end
 
   def user_posts
-    @quotes = Quote.where.not(end_user_id: nil)
+    @quotes = Quote.where.not(end_user_id: nil).order(created_at: "DESC").all.page(params[:page]).per(12)
   end
 
   def show
     @quote = Quote.find(params[:id])
+    @comments = @quote.comments.order(created_at: "DESC").all.page(params[:page]).per(10)
   end
 
   def edit

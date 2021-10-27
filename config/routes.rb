@@ -17,7 +17,6 @@ Rails.application.routes.draw do
 
   #ユーザー側のルーティング
   get 'quotes/user_posts' => 'quotes#user_posts' #ユーザーの投稿と管理者側の投稿を分けるためにページも別々に
-  get 'contacts/thanks' => 'contacts/thanks'
   get 'end_users/:id/withdrawal' => 'end_users#withdrawal', as: 'withdrawal' #退会確認ページ
   patch 'end_users/:id/unsubscribe' => 'end_users#unsubscribe', as: 'unsubscribe' #退会フラグを更新する
   get 'end_users/:id/following' => 'end_users#following', as: 'follow_list'
@@ -36,7 +35,9 @@ Rails.application.routes.draw do
   #管理者側のルーティング
   namespace :admins do
     get 'quotes/user_posts' => 'quotes#user_posts'
-    resources :quotes
+    resources :quotes do
+      resources :comments, only: [:destroy]
+    end
     resources :end_users, only: [:index, :show, :edit, :update]
     resources :categories, only: [:index, :create, :update, :destroy]
     resources :person_profiles

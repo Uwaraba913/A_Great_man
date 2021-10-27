@@ -11,11 +11,12 @@ class Admins::PersonProfilesController < ApplicationController
   end
 
   def index
-    @persons = PersonProfile.all
+    @persons = PersonProfile.all.page(params[:page]).per(12)
   end
 
   def show
     @person = PersonProfile.find(params[:id])
+    @quotes = @person.quotes.all.order(created_at: "DESC").all.page(params[:page]).per(12)
   end
 
   def edit
