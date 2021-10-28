@@ -12,8 +12,8 @@ class Quote < ApplicationRecord
   validates :person_name,
     presence: true,
     length: { maximum: 20 },
-    unless: -> { admin }
-      
+    unless: -> { admin } #adminはこのバリデーションを適用しない
+
   validates :content,
     presence: true,
     length: { maximum: 100 }
