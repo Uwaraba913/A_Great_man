@@ -49,7 +49,7 @@
       <% else %>
         <th><div class="negative-icon"><%= quote.category.name %></div></th>
       <% end %>
-      <th><%= quote.content %></th>
+      <th><%= link_to quote.content, admins_quote_path(quote.id) %></th>
       <th>
         G<%= quote.evaluation_good.count %><br>
         B<%= quote.evaluation_bad.count %>
