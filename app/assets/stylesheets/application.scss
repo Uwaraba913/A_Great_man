@@ -252,7 +252,7 @@ th {
   padding : 8px;
   width : 95%;
   border : ridge 4px #FFCC00;
-  background-image : image-url(quote_back.jpg);
+  background-image : image-url("quote_back.jpg");
   background-size : cover;
 }
 
@@ -261,14 +261,14 @@ th {
   padding : 8px;
   width : 340px;
   border : ridge 4px #FFCC00;
-  background-image : image-url(quote_back.jpg);
+  background-image : image-url("quote_back.jpg");
   background-size : cover;
 }
 
 .quote-show {
   max-width : 650px;
   border : ridge 8px #FFCC00;
-  background-image : image-url(quote_back.jpg);
+  background-image : image-url("quote_back.jpg");
   background-size : cover;
   color : #FFF;
   padding : 40px 35px 30px 40px;
@@ -332,7 +332,7 @@ th {
   padding : 8px;
   width : 90%;
   border : ridge 4px #DDDDDD;
-  background-image : image-url(quote.jpg);
+  background-image : image-url("quote.jpg");
   background-size : cover;
 }
 
@@ -342,7 +342,7 @@ th {
   width : 90%;
   max-width : 730px;
   border : ridge 4px #DDDDDD;
-  background-image : image-url(quote.jpg);
+  background-image : image-url("quote.jpg");
   background-size : cover;
 }
 
