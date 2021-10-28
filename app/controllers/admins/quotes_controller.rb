@@ -8,8 +8,11 @@ class Admins::QuotesController < ApplicationController
 
   def create
     quote = Quote.new(quote_params)
-    quote.save
-    redirect_to admins_quote_path(quote.id)
+    if quote.save
+      redirect_to admins_quote_path(quote.id)
+    else
+      render :new
+    end
   end
 
   def index

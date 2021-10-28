@@ -11,7 +11,9 @@ class Quote < ApplicationRecord
 
   validates :person_name,
     presence: true,
-    length: { maximum: 20 }
+    length: { maximum: 20 },
+    unless: -> { admin }
+      
   validates :content,
     presence: true,
     length: { maximum: 100 }
