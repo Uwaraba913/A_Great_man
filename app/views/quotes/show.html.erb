@@ -49,12 +49,13 @@
     <div class="comment-area mt-3">
       <h5>コメント</h5>
       <div id="comment_error"><%= render 'comments/error', comment: @comment %></div>
-      <%= form_with(model:[@quote, @comment]) do |f| %>
-        <%= attachment_image_tag current_end_user, :image, fallback: "no_image.png", size: "50x50" %>
-        <%= f.text_field :comment, placeholder: "コメントする", class: "comment-form" %>
-        <%= f.submit "送信", class: "btn btn-primary"%>
+      <% if end_user_signed_in? %>
+        <%= form_with(model:[@quote, @comment]) do |f| %>
+          <%= attachment_image_tag current_end_user, :image, fallback: "no_image.png", size: "50x50" %>
+          <%= f.text_field :comment, placeholder: "コメントする", class: "comment-form" %>
+          <%= f.submit "送信", class: "btn btn-primary"%>
+        <% end %>
       <% end %>
-
       <div id="comment-area"><%= render 'comments/form', comments: @comments %></div>
       <div class="d-flex align-items-center justify-content-center"><%= paginate @comments %></div>
     </div>

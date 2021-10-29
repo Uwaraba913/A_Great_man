@@ -21,4 +21,9 @@
       <font color="#C0C0C0" size="5"><%= quote.evaluation_bad.count %></font>
     <% end %>
   <% end %>
+<% else %>
+  <%= image_tag "good_nocolor.png", width: "35", height: "35" %>
+  <font color="#C0C0C0" size="5"><%= quote.evaluation_good.count %></font>
+  <%= image_tag "bad_nocolor.png",  width: "35", height: "35" %>
+  <font color="#C0C0C0" size="5"><%= quote.evaluation_bad.count %></font>
 <% end %>

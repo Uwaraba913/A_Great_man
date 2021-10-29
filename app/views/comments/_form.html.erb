@@ -7,8 +7,10 @@
       <div>
         <%= comment.end_user.name %><br>
         <%= comment.comment %>
-        <% if current_end_user.id == comment.end_user_id %>
-        <%= link_to "削除する", quote_comment_path(comment.quote_id, comment.id), method: :delete, remote: true %>
+        <% if end_user_signed_in? %>
+          <% if current_end_user.id == comment.end_user_id %>
+            <%= link_to "削除する", quote_comment_path(comment.quote_id, comment.id), method: :delete, remote: true %>
+          <% end %>
         <% end %>
       </div>
     </div>
