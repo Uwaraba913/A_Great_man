@@ -7,8 +7,8 @@ class HomesController < ApplicationController
   end
 
   def random
-    @posi_quote = Quote.where.not(admin_id: nil, category_id: 3).order("RANDOM()").first
-    @nega_quote = Quote.where.not(admin_id: nil, category_id: 2).order("RANDOM()").first
+    @posi_quote = Quote.where.not(admin_id: nil, category_id: 3).order("RAND()").first
+    @nega_quote = Quote.where.not(admin_id: nil, category_id: 2).order("RAND()").first
   end
 
 end
