@@ -1,6 +1,7 @@
 class HomesController < ApplicationController
 
   def top
+    @quotes = Quote.where.not(admin_id: nil).order(created_at: "DESC").limit(10)
   end
 
   def about

@@ -3,3 +3,22 @@
   <h1>ようこそ偉人名（迷）言録へ…</h1>
   <p>ここでは偉人の様々な名（迷）言を閲覧、投稿できるサイトです。</p>
 </div>
+  <div class="slide-top">
+    <div id="slide-show">
+      <% @quotes.each do |quote| %>
+        <div>
+          <%= link_to quote_path(quote.id) do %>
+            <%= attachment_image_tag quote.person_profile, :image, fallback: "no_image.png", size: "60x60" %>
+            <%= quote.person_profile.name %><br>
+            <% if quote.category.name == "ポジティブ" %>
+              <span class="positive-icon"><%= quote.category.name %></span>
+            <% else %>
+              <span class="negative-icon"><%= quote.category.name %></span>
+            <% end %>
+            <%= l quote.created_at %>
+            <%= quote.content.truncate(50, omission: '...') %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
