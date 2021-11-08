@@ -360,6 +360,14 @@ th {
   font-size : 20px;
 }
 
-.slide-top {
-  height : 600px;
+.slideshow {
+  overflow : hidden;
+  position : relative;
+  height : 500px;
+}
+
+.slide {
+  display : none;
+  position : absolute;
+  height : 400px;
 }
