@@ -6,17 +6,22 @@
     <div class="slideshow">
       <% @quotes.each do |quote| %>
         <div class="slide">
-          <%= link_to quote_path(quote.id) do %>
-            <%= attachment_image_tag quote.person_profile, :image, fallback: "no_image.png", size: "60x60" %>
-            <%= quote.person_profile.name %><br>
-            <% if quote.category.name == "ポジティブ" %>
-              <span class="positive-icon"><%= quote.category.name %></span>
-            <% else %>
-              <span class="negative-icon"><%= quote.category.name %></span>
+          <div class="person-profile d-flex flex-row">
+            <%= link_to quote_path(quote.id) do %>
+              <div>
+                <%= attachment_image_tag quote.person_profile, :image, fallback: "no_image.png", size: "60x60" %>
+              </div>
+              <div>
+                <%= quote.person_profile.name %><br>
+                <% if quote.category.name == "ポジティブ" %>
+                  <span class="positive-icon"><%= quote.category.name %></span>
+                <% else %>
+                  <span class="negative-icon"><%= quote.category.name %></span>
+                <% end %>
+                <%= l quote.created_at %>
+                <%= quote.content.truncate(50, omission: '...') %>
             <% end %>
-            <%= l quote.created_at %>
-            <%= quote.content.truncate(50, omission: '...') %>
-          <% end %>
+          </div>
         </div>
       <% end %>
     </div>
