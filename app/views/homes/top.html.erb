@@ -6,8 +6,8 @@
     <div class="slideshow">
       <% @quotes.each do |quote| %>
         <div class="slide">
-          <div class="person-profile d-flex flex-row">
-            <%= link_to quote_path(quote.id) do %>
+          <%= link_to quote_path(quote.id) do %>
+            <div class="person-profile d-flex flex-row">
               <div>
                 <%= attachment_image_tag quote.person_profile, :image, fallback: "no_image.png", size: "60x60" %>
               </div>
@@ -19,9 +19,10 @@
                   <span class="negative-icon"><%= quote.category.name %></span>
                 <% end %>
                 <%= l quote.created_at %>
-                <%= quote.content.truncate(50, omission: '...') %>
-            <% end %>
-          </div>
+              </div>
+            </div>
+          <%= quote.content.truncate(50, omission: '...') %>
+          <% end %>
         </div>
       <% end %>
     </div>
